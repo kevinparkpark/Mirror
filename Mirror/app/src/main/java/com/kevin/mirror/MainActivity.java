@@ -3,6 +3,7 @@ package com.kevin.mirror;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+<<<<<<< HEAD
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.AllKindsFragment;
 import com.kevin.mirror.mainpage.GlassesFragment;
@@ -19,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<BaseFragment> fragments;
     private MainAdapter adapter;
     private VerticalViewPager viewPager;
+=======
+public class   MainActivity extends AppCompatActivity {
+>>>>>>> def4c44a4fa85b470889c727b8cacfe04fadf0ff
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
