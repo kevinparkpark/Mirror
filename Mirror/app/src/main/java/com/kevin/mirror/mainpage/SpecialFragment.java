@@ -10,7 +10,7 @@ import com.kevin.mirror.base.BaseFragment;
  */
 public class SpecialFragment extends BaseFragment{
     @Override
-    public int setlayout() {
+    public int setLayout() {
         return R.layout.fragment_allkinds;
     }
 

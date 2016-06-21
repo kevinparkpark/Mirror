@@ -20,12 +20,12 @@ public abstract class BaseFragment extends Fragment{
         this.context=context;
     }
 
-    public abstract int setlayout();
+    public abstract int setLayout();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(setlayout(),container,false);
+        return inflater.inflate(setLayout(),container,false);
     }
 
     @Override
