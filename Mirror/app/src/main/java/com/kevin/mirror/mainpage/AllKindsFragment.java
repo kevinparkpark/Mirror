@@ -13,7 +13,7 @@ public class AllKindsFragment extends BaseFragment{
     private ViewPager viewPager;
 
     @Override
-    public int setlayout() {
+    public int setLayout() {
         return R.layout.fragment_allkinds;
     }
 
