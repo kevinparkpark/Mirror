@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#30000000">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/close"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="406px"
+        android:text="@string/test_word"
+        android:textColor="#f04055"
+        android:textSize="50px" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="600px"
+        android:layout_height="4px"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24px"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="600px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:text="@string/test_word"
+        android:textSize="26px" />
+
+    <View
+        android:layout_width="600px"
+        android:layout_height="4px"
+        android:layout_below="@id/subTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@android:color/black" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</com.zhy.autolayout.AutoRelativeLayout>
