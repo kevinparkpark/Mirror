@@ -15,8 +15,9 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
     private ImageView iv0,iv1,iv2,iv3,iv4;
     private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt;
     private int position;
+
     @Override
-    public int setlayout() {
+    public int setLayout() {
         return R.layout.fragment_menu;
     }
 
