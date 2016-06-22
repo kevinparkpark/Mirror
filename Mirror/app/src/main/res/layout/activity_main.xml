@@ -6,13 +6,19 @@
     android:background="@mipmap/bg"
     tools:context="com.kevin.mirror.MainActivity">
 
-    <fr.castorflex.android.verticalviewpager.VerticalViewPager
-        android:id="@+id/verticalviewpager_main"
+    <FrameLayout
+        android:id="@+id/framelayout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/relativeLayout">
 
-    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+        <fr.castorflex.android.verticalviewpager.VerticalViewPager
+            android:id="@+id/verticalviewpager_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+    </FrameLayout>
 
 
     <RelativeLayout
@@ -24,22 +30,23 @@
         android:layout_gravity="center_horizontal|bottom">
 
         <ImageView
-            android:layout_marginBottom="40px"
-            android:src="@mipmap/mirror"
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="40px"
             android:layout_marginStart="48px"
-            android:id="@+id/imageView2"
-            android:layout_alignParentStart="true" />
+            android:src="@mipmap/mirror" />
+
         <TextView
             android:id="@+id/tv_main_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="登録"
-            android:textColor="@android:color/white"
-            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="48px" />
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="48px"
+            android:text="登録"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 
