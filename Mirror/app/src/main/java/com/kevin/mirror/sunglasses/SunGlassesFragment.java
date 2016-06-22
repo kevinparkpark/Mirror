@@ -1,4 +1,4 @@
-package com.kevin.mirror.mainpage;
+package com.kevin.mirror.sunglasses;
 
 import android.view.View;
 
@@ -6,12 +6,13 @@ import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 
 /**
- * Created by kevin on 16/6/21.
+ * Created by dllo on 16/6/21.
  */
-public class SpecialFragment extends BaseFragment{
+public class SunGlassesFragment extends BaseFragment{
+
     @Override
     public int setLayout() {
-        return R.layout.fragment_allkinds;
+        return R.layout.fragment_sunglasses;
     }
 
     @Override

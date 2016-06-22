@@ -12,7 +12,7 @@ import com.kevin.mirror.base.BaseFragment;
 public class GlassesFragment extends BaseFragment{
     private RelativeLayout relativeLayout;
     @Override
-    public int setlayout() {
+    public int setLayout() {
         return R.layout.fragment_allkinds;
     }
 
