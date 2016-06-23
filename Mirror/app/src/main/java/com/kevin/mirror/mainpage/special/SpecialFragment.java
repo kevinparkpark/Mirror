@@ -1,5 +1,6 @@
-package com.kevin.mirror.mainpage.sunglasses;
+package com.kevin.mirror.mainpage.special;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -19,12 +20,12 @@ import com.kevin.mirror.netutils.URLValues;
 /**
  * Created by kevin on 16/6/21.
  */
-public class SunGlassesFragment extends BaseFragment{
+public class SpecialFragment extends BaseFragment{
     private RelativeLayout relativeLayout;
     private TextView tvTitle,tvDetails;
-    private SunGlassesAdapter adapter;
     private RecyclerView recyclerView;
-    private SunGlassesBean sunGlassesBean;
+    private SpecialAdapter adapter;
+    private SpecialBean specialBean;
     @Override
     public int setLayout() {
         return R.layout.fragment_allkinds;
@@ -36,30 +37,31 @@ public class SunGlassesFragment extends BaseFragment{
         tvTitle= (TextView) view.findViewById(R.id.tv_allkinds_title);
         tvDetails= (TextView) view.findViewById(R.id.tv_allkinds_details);
         recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview_allkinds);
+
     }
 
     @Override
     protected void initData() {
-        tvTitle.setText("浏览太阳镜");
+        tvTitle.setText("专题分享");
         tvDetails.setText("显示排序为 最新推荐");
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MenuOnClickListener)getActivity()).onMenuClickListener(2);
+                ((MenuOnClickListener)getActivity()).onMenuClickListener(3);
             }
         });
-        adapter=new SunGlassesAdapter(context);
+        adapter=new SpecialAdapter(context);
         LinearLayoutManager manager=new LinearLayoutManager(context);
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
 
         NetTool netTool=new NetTool();
-        netTool.postRequest(URLValues.GOODSLIST_URL, "", "2","268", new NetListener() {
+        netTool.postRequest(URLValues.STORYLIST_URL, "", "2","", new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson=new Gson();
-                sunGlassesBean=gson.fromJson(result,SunGlassesBean.class);
-                adapter.setListBeen(sunGlassesBean.getData().getList());
+                specialBean=gson.fromJson(result,SpecialBean.class);
+                adapter.setListBeen(specialBean.getData().getList());
                 recyclerView.setAdapter(adapter);
             }
 
@@ -71,7 +73,9 @@ public class SunGlassesFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-
+                Intent intent=new Intent();
+                intent.putExtra("id",specialBean.getData().getList().get(position).getStory_id());
+                startActivity(intent);
             }
         });
     }
