@@ -23,10 +23,16 @@
         android:background="@mipmap/share" />
 
     <fr.castorflex.android.verticalviewpager.VerticalViewPager
-        android:id="@+id/viewPager"
+        android:id="@+id/specialViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
 </com.zhy.autolayout.AutoRelativeLayout>

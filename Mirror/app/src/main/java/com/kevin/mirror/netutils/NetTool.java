@@ -43,9 +43,10 @@ public class NetTool {
         });
         requestQueue.add(stringRequest);
     }
+
     //post请求
     public void postRequest(String url, final String token, final String devicetype, final NetListener netListener) {
-        StringRequest request = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 netListener.onSuccessed(response);
@@ -68,8 +69,8 @@ public class NetTool {
     }
 
     //获取图片及状态
-    public void getImage(String url, final ImageNetListener imageNetListener){
-        ImageRequest imageRequest=new ImageRequest(url, new Response.Listener<Bitmap>() {
+    public void getImage(String url, final ImageNetListener imageNetListener) {
+        ImageRequest imageRequest = new ImageRequest(url, new Response.Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
                 imageNetListener.onSuccessed(response);
@@ -81,6 +82,29 @@ public class NetTool {
             }
         });
         requestQueue.add(imageRequest);
+    }
+
+    public void storyPostRequest(String url, final String deviceType, final String storyId, final NetListener netListener) {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                netListener.onSuccessed(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                netListener.onFailed(error);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> body = new HashMap<>();
+                body.put("device_type", deviceType);
+                body.put("story_id", storyId);
+                return body;
+            }
+        };
+        requestQueue.add(request);
     }
 
 }

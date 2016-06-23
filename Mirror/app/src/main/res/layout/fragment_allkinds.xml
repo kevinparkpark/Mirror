@@ -1,59 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    android:orientation="vertical">
+
     <RelativeLayout
+        android:id="@+id/relativeLayout_allkinds"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout_allkinds">
+        android:layout_height="wrap_content">
+
         <TextView
-            android:textSize="17dp"
-            android:textColor="@android:color/white"
-            android:text="浏览所有分类"
+            android:id="@+id/tv_allkinds_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/imageView"
-            android:id="@+id/tv_allkinds_title" />
+            android:layout_marginTop="10dp"
+            android:text="浏览所有分类"
+            android:textColor="@android:color/white"
+            android:textSize="17dp" />
+
         <ImageView
-            android:src="@mipmap/trabecula"
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_marginStart="22px"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_allkinds_title"
-            android:layout_alignParentStart="true" />
+            android:layout_marginStart="22px"
+            android:src="@mipmap/trabecula" />
+
         <TextView
             android:id="@+id/tv_allkinds_details"
-            android:layout_marginBottom="94px"
-            android:textColor="@android:color/white"
-            android:text="显示排序为最新推荐"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
             android:layout_alignStart="@+id/imageView"
-            android:layout_marginTop="26px" />
+            android:layout_below="@+id/imageView"
+            android:layout_marginBottom="94px"
+            android:layout_marginTop="26px"
+            android:text="显示排序为最新推荐"
+            android:textColor="@android:color/white" />
+
         <ImageView
-            android:layout_marginStart="9px"
-            android:src="@mipmap/down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tv_allkinds_title"
-            android:layout_toEndOf="@+id/tv_allkinds_title" />
+            android:layout_marginStart="9px"
+            android:layout_toEndOf="@+id/tv_allkinds_title"
+            android:src="@mipmap/down" />
     </RelativeLayout>
+
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="832px">
 
-    <android.support.v7.widget.RecyclerView
-        android:clipChildren="false"
-        android:id="@+id/recyclerview_allkinds"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_allkinds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false">
 
-    </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>
