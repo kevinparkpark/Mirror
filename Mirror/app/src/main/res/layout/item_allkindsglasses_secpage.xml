@@ -25,24 +25,21 @@
         android:layout_marginTop="24px"
         android:background="@mipmap/black_rail" />
 
-    <ImageView
-        android:id="@+id/iv_allKIndsGlasses_secPage"
-        android:layout_width="wrap_content"
-        android:layout_height="500px"
-        android:background="@mipmap/glass" />
+
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="65px"
         android:layout_marginRight="65px"
-        android:layout_gravity="center_horizontal"
-        android:background="@android:color/black">
+        android:background="@android:color/black"
+        android:layout_marginTop="466px">
 
         <ImageView
             android:id="@+id/iv_line_allKindsGlasses_secPage"
             android:layout_width="580px"
-            android:layout_height="8px"
+            android:layout_height="12px"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="28px"
             android:background="@mipmap/underthetitleofline" />
@@ -60,48 +57,51 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_english_allKindsGlasses_secPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/tv_CT_allKindsGlasses_secPage"
             android:layout_below="@id/tv_CT_allKindsGlasses_secPage"
+            android:layout_marginTop="10px"
             android:text="The frame comes from Korea"
             android:textColor="#fff"
-            android:textStyle="bold"
             android:textSize="24px"
-            android:layout_marginTop="10px"
-            android:id="@+id/tv_english_allKindsGlasses_secPage"/>
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/tv_country_allKindsGlasses_secPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_CT_allKindsGlasses_secPage"
             android:layout_below="@id/iv_line_allKindsGlasses_secPage"
+            android:layout_marginLeft="26px"
             android:layout_toRightOf="@id/tv_CT_allKindsGlasses_secPage"
             android:text="韓國"
             android:textColor="#fff"
-            android:textStyle="bold"
             android:textSize="64px"
-            android:layout_marginLeft="26px"
-            android:layout_alignTop="@id/tv_CT_allKindsGlasses_secPage"
-            android:id="@+id/tv_country_allKindsGlasses_secPage"/>
+            android:textStyle="bold" />
+
         <ImageView
+            android:id="@+id/iv_line2_allKindsGlasses_secPage"
             android:layout_width="580px"
-            android:layout_height="8px"
+            android:layout_height="12px"
             android:layout_below="@id/tv_english_allKindsGlasses_secPage"
             android:layout_centerHorizontal="true"
-            android:background="@mipmap/underthetitleofline"
             android:layout_marginTop="26px"
-            android:id="@+id/iv_line2_allKindsGlasses_secPage"/>
+            android:background="@mipmap/underthetitleofline" />
+
         <TextView
+            android:id="@+id/tv_content_allKindsGlasses_secPage"
             android:layout_width="580px"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="作为韩国潮牌太阳镜，SPRING STRINGS被许多国际人士所热爱。包括韩国女团T-ARA,SISTAR以及各路来自全国各地的潮人都经常配戴，是时尚达人不可或缺的太阳镜。"
-            android:textSize="26px"
-            android:textColor="#fff"
-            android:textStyle="bold"
             android:layout_below="@id/iv_line2_allKindsGlasses_secPage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40px"
             android:layout_marginTop="26px"
-            android:layout_marginBottom="40px"/>
-
+            android:text="作为韩国潮牌太阳镜，SPRING STRINGS被许多国际人士所热爱。包括韩国女团T-ARA,SISTAR以及各路来自全国各地的潮人都经常配戴，是时尚达人不可或缺的太阳镜。"
+            android:textColor="#fff"
+            android:textSize="26px"
+            android:textStyle="bold" />
 
 
     </com.zhy.autolayout.AutoRelativeLayout>

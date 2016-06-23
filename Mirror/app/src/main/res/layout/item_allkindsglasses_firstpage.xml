@@ -2,7 +2,8 @@
 <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray">
+    android:background="#50000000"
+    android:id="@+id/relativeLayout_allKindsGlasses_firstPage">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -54,7 +55,8 @@
                 android:text="女款｜晶粉貓眼太陽鏡"
                 android:textColor="#fff"
                 android:textSize="42px"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:id="@+id/tv_allKindsGlasses_brand_firstPage"/>
 
             <ImageView
                 android:layout_width="510px"
