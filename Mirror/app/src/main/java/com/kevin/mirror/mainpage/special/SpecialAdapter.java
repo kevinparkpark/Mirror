@@ -22,10 +22,10 @@ import java.util.List;
 /**
  * Created by kevin on 16/6/22.
  */
-public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder>{
+public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder> {
     private List<SpecialBean.DataBean.ListBean> listBeen;
     private Context context;
-    private NetTool netTool=new NetTool();
+    private NetTool netTool = new NetTool();
     private FragmentToDetailsOnClickListener clickListener;
 
     public void setClickListener(FragmentToDetailsOnClickListener clickListener) {
@@ -43,13 +43,13 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(context).inflate(R.layout.item_allkinds_2,parent,false);
-        MyHolder holder=new MyHolder(itemView);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_allkinds_2, parent, false);
+        MyHolder holder = new MyHolder(itemView);
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(final MyHolder holder, int position) {
+    public void onBindViewHolder(final MyHolder holder, final int position) {
         holder.textView.setText(listBeen.get(position).getStory_title());
         netTool.getImage(listBeen.get(position).getStory_img(), new ImageNetListener() {
             @Override
@@ -63,17 +63,22 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
 
             }
         });
-        if (clickListener!=null){
-            clickListener.onFragmentToDetailsClickListener(position);
+        if (clickListener != null) {
+            holder.autoLinearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickListener.onFragmentToDetailsClickListener(position);
+                }
+            });
         }
     }
 
     @Override
     public int getItemCount() {
-        return listBeen==null?0:listBeen.size();
+        return listBeen == null ? 0 : listBeen.size();
     }
 
-    class MyHolder extends RecyclerView.ViewHolder{
+    class MyHolder extends RecyclerView.ViewHolder {
         TextView textView;
         ImageView imageView;
         ProgressBar progressBar;
@@ -83,8 +88,8 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.tv_allkinds_brand2);
             imageView = (ImageView) itemView.findViewById(R.id.iv_allkinds_img2);
-            progressBar= (ProgressBar) itemView.findViewById(R.id.progressbar_item_allkinds_2);
-            autoLinearLayout= (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_2);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progressbar_item_allkinds_2);
+            autoLinearLayout = (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_2);
         }
     }
 }

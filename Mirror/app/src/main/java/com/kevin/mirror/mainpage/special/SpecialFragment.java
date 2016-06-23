@@ -81,5 +81,14 @@ public class SpecialFragment extends BaseFragment {
 
             }
         });
+        adapter.setClickListener(new FragmentToDetailsOnClickListener() {
+            @Override
+            public void onFragmentToDetailsClickListener(int position) {
+                Log.d("SpecialFragment", "1");
+                Intent intent=new Intent(getActivity(), SpecialActivity.class);
+                intent.putExtra("id",specialBean.getData().getList().get(position).getStory_id());
+                startActivity(intent);
+            }
+        });
     }
 }
