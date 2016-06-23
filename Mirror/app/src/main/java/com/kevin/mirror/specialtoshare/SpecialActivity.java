@@ -30,8 +30,8 @@ public class SpecialActivity extends FragmentActivity implements View.OnClickLis
     private ImageView closeIv, shareIv;
     private VerticalViewPager viewPager;
     private ProgressBar progressBar;
-    private SpecialAdapter adapter;
-    private SpecialBean specialBean;
+    private SpecialDetailsAdapter adapter;
+    private SpecialDetailsBean specialDetailsBean;
     private List<String> imageUrl;
 
     @Override
@@ -57,7 +57,7 @@ public class SpecialActivity extends FragmentActivity implements View.OnClickLis
 
     private void initData() {
         NetTool netTool = new NetTool();
-        specialBean = new SpecialBean();
+        specialDetailsBean = new SpecialDetailsBean();
         imageUrl = new ArrayList<>();
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
@@ -65,8 +65,8 @@ public class SpecialActivity extends FragmentActivity implements View.OnClickLis
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
-                specialBean = gson.fromJson(result, SpecialBean.class);
-                imageUrl = specialBean.getData().getStory_data().getImg_array();
+                specialDetailsBean = gson.fromJson(result, SpecialDetailsBean.class);
+                imageUrl = specialDetailsBean.getData().getStory_data().getImg_array();
                 progressBar.setVisibility(View.GONE);
             }
 
@@ -76,7 +76,7 @@ public class SpecialActivity extends FragmentActivity implements View.OnClickLis
             }
 
         });
-        adapter = new SpecialAdapter(this, specialBean);
+        adapter = new SpecialDetailsAdapter(this, specialDetailsBean);
     }
 
     @Override

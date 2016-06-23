@@ -21,17 +21,6 @@
             android:textSize="@dimen/frg_one_vertical_title_size" />
 
         <TextView
-            android:id="@+id/oneSmallTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/oneTitle"
-            android:layout_marginBottom="@dimen/frg_one_small_title_mb"
-            android:layout_marginLeft="@dimen/frg_one_small_title_ml"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="@dimen/frg_one_small_title_size" />
-
-        <TextView
             android:id="@+id/oneSubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,6 +50,17 @@
             android:layout_marginLeft="@dimen/frg_one_title_ml"
             android:text="@string/test_word"
             android:textSize="@dimen/frg_one_title_size" />
+
+        <TextView
+            android:id="@+id/oneSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/oneTitle"
+            android:layout_marginBottom="@dimen/frg_one_small_title_mb"
+            android:layout_marginLeft="@dimen/frg_one_small_title_ml"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="@dimen/frg_one_small_title_size" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -133,16 +133,6 @@
             android:textSize="26px" />
 
         <TextView
-            android:id="@+id/threeSmallTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/threeTitle"
-            android:layout_marginBottom="10px"
-            android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textSize="30px" />
-
-        <TextView
             android:id="@+id/threeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,6 +141,16 @@
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
             android:textSize="70px" />
+
+        <TextView
+            android:id="@+id/threeSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/threeTitle"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textSize="30px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoRelativeLayout
