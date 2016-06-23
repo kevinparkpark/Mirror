@@ -2,7 +2,7 @@
 <com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#30000000">
+    android:background="#10000000">
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:id="@+id/oneRl"
@@ -18,6 +18,7 @@
             android:layout_marginTop="@dimen/frg_one_vertical_title_top"
             android:maxEms="2"
             android:text="@string/test_word"
+            android:textColor="#f04055"
             android:textSize="@dimen/frg_one_vertical_title_size" />
 
         <TextView
@@ -39,6 +40,7 @@
             android:layout_marginBottom="@dimen/frg_one_color_title_mb"
             android:layout_marginLeft="@dimen/frg_one_color_title_ml"
             android:text="@string/test_word"
+            android:textColor="#f04055"
             android:textSize="@dimen/frg_one_color_title_size" />
 
         <TextView
@@ -49,6 +51,7 @@
             android:layout_marginBottom="@dimen/frg_one_title_mb"
             android:layout_marginLeft="@dimen/frg_one_title_ml"
             android:text="@string/test_word"
+            android:textColor="#fff"
             android:textSize="@dimen/frg_one_title_size" />
 
         <TextView
@@ -130,6 +133,7 @@
             android:layout_marginBottom="70px"
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
+            android:textColor="#fff"
             android:textSize="26px" />
 
         <TextView
@@ -140,6 +144,7 @@
             android:layout_marginBottom="20px"
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
+            android:textColor="#f04055"
             android:textSize="70px" />
 
         <TextView
@@ -150,6 +155,7 @@
             android:layout_marginBottom="10px"
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
+            android:textColor="#fff"
             android:textSize="30px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -186,6 +192,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20px"
             android:text="@string/test_word"
+            android:textColor="#fff"
             android:textSize="26px" />
 
         <View
@@ -211,6 +218,7 @@
             android:layout_marginBottom="80px"
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
+            android:textColor="#f04055"
             android:textSize="70px" />
 
         <TextView
@@ -221,6 +229,7 @@
             android:layout_marginBottom="20px"
             android:layout_marginLeft="34px"
             android:text="@string/test_word"
+            android:textColor="#fff"
             android:textSize="30px" />
 
     </com.zhy.autolayout.AutoRelativeLayout>

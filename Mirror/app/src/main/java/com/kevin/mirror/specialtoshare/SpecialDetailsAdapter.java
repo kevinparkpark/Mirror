@@ -3,6 +3,7 @@ package com.kevin.mirror.specialtoshare;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +25,11 @@ public class SpecialDetailsAdapter extends PagerAdapter {
             fourTitle, fourSubTitle, fiveTitle, fiveSmallTitle;
     private String category;
 
-    public SpecialDetailsAdapter(Context context, SpecialDetailsBean specialDetailsBean) {
+    public SpecialDetailsAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setSpecialDetailsBean(SpecialDetailsBean specialDetailsBean) {
         this.specialDetailsBean = specialDetailsBean;
         notifyDataSetChanged();
     }
@@ -54,60 +58,56 @@ public class SpecialDetailsAdapter extends PagerAdapter {
         fiveTitle = (TextView) view.findViewById(R.id.fiveTitle);
         fiveSmallTitle = (TextView) view.findViewById(R.id.fiveSmallTitle);
         category = specialDetailsBean.getData().getStory_data().getText_array().get(position).getCategory();
-
         switch (category) {
             case "styleOne":
                 oneRl.setVisibility(View.VISIBLE);
                 oneVerticalTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getVerticalTitle());
-                oneVerticalTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getVerticalTitleColor()));
                 oneSmallTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSmallTitle());
                 oneTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitle());
-                oneTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitleColor()));
                 oneSubTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSubTitle());
                 oneColorTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getColorTitle());
-                oneColorTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getColorTitleColor()));
                 break;
             case "styleTwo":
                 twoRl.setVisibility(View.VISIBLE);
                 twoSmallTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSmallTitle());
                 twoTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitle());
-                twoTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitleColor()));
                 twoSubTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSubTitle());
                 break;
             case "styleThree":
                 threeRl.setVisibility(View.VISIBLE);
                 threeSmallTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSmallTitle());
                 threeTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitle());
-                threeTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitleColor()));
                 threeSubTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSubTitle());
                 break;
             case "styleFour":
                 fourRl.setVisibility(View.VISIBLE);
                 fourTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitle());
-                fourTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitleColor()));
                 fourSubTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSubTitle());
                 break;
             case "styleFive":
                 fiveRl.setVisibility(View.VISIBLE);
                 fiveTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitle());
-                fiveTitle.setTextColor(Integer.parseInt(specialDetailsBean.getData().getStory_data().getText_array().get(position).getTitleColor()));
                 fiveSmallTitle.setText(specialDetailsBean.getData().getStory_data().getText_array().get(position).getSmallTitle());
                 break;
             default:
         }
+        container.addView(view);
         return view;
     }
 
     @Override
     public int getCount() {
-        return 5;
-//        return specialDetailsBean.getData().getStory_data().getImg_array()==null?0: specialDetailsBean.getData().getStory_data().getImg_array().size();
-//        return specialDetailsBean != null && specialDetailsBean.getData().getStory_data().getImg_array().size() > 0 ?
-//                specialDetailsBean.getData().getStory_data().getImg_array().size() : 0;
+        return specialDetailsBean != null && specialDetailsBean.getData().getStory_data().getImg_array().size() > 0 ?
+                specialDetailsBean.getData().getStory_data().getImg_array().size() : 0;
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
     }
 }
