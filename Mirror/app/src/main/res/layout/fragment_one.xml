@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#10000000">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/oneRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/oneVerticalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/frg_one_vertical_title_left"
+            android:layout_marginTop="@dimen/frg_one_vertical_title_top"
+            android:maxEms="2"
+            android:text="@string/test_word"
+            android:textColor="#f04055"
+            android:textSize="@dimen/frg_one_vertical_title_size" />
+
+        <TextView
+            android:id="@+id/oneSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/frg_one_sub_title_mb"
+            android:layout_marginLeft="@dimen/frg_one_sub_title_ml"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="@dimen/frg_one_sub_title_size" />
+
+        <TextView
+            android:id="@+id/oneColorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/oneSubTitle"
+            android:layout_marginBottom="@dimen/frg_one_color_title_mb"
+            android:layout_marginLeft="@dimen/frg_one_color_title_ml"
+            android:text="@string/test_word"
+            android:textColor="#f04055"
+            android:textSize="@dimen/frg_one_color_title_size" />
+
+        <TextView
+            android:id="@+id/oneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/oneColorTitle"
+            android:layout_marginBottom="@dimen/frg_one_title_mb"
+            android:layout_marginLeft="@dimen/frg_one_title_ml"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="@dimen/frg_one_title_size" />
+
+        <TextView
+            android:id="@+id/oneSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/oneTitle"
+            android:layout_marginBottom="@dimen/frg_one_small_title_mb"
+            android:layout_marginLeft="@dimen/frg_one_small_title_ml"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="@dimen/frg_one_small_title_size" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/twoRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="@dimen/frg_two_auto_rl_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/frg_two_auto_rl_mb"
+            android:background="@mipmap/bg06">
+
+            <TextView
+                android:id="@+id/twoSmallTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/frg_two_small_title_ml"
+                android:layout_marginRight="@dimen/frg_two_small_title_mr"
+                android:layout_marginTop="42px"
+                android:text="@string/test_word"
+                android:textColor="#fff"
+                android:textSize="22px" />
+
+            <TextView
+                android:id="@+id/twoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/twoSmallTitle"
+                android:layout_marginLeft="36px"
+                android:layout_marginRight="36px"
+                android:layout_marginTop="22px"
+                android:text="@string/test_word"
+                android:textColor="#fff"
+                android:textSize="34px" />
+
+            <TextView
+                android:id="@+id/twoSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/twoTitle"
+                android:layout_marginLeft="36px"
+                android:layout_marginRight="36px"
+                android:layout_marginTop="22px"
+                android:text="@string/test_word"
+                android:textColor="#fff"
+                android:textSize="20px" />
+
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/threeRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/threeSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="26px" />
+
+        <TextView
+            android:id="@+id/threeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/threeSubTitle"
+            android:layout_marginBottom="20px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textColor="#f04055"
+            android:textSize="70px" />
+
+        <TextView
+            android:id="@+id/threeSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/threeTitle"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="30px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fourRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/fourTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="406px"
+            android:text="@string/test_word"
+            android:textColor="#f04055"
+            android:textSize="50px" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="600px"
+            android:layout_height="4px"
+            android:layout_below="@id/fourTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24px"
+            android:background="@android:color/white" />
+
+        <TextView
+            android:id="@+id/fourSubTitle"
+            android:layout_width="600px"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20px"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="26px" />
+
+        <View
+            android:layout_width="600px"
+            android:layout_height="4px"
+            android:layout_below="@id/fourSubTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20px"
+            android:background="@android:color/white" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/fiveRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/fiveTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="80px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textColor="#f04055"
+            android:textSize="70px" />
+
+        <TextView
+            android:id="@+id/fiveSmallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fiveTitle"
+            android:layout_marginBottom="20px"
+            android:layout_marginLeft="34px"
+            android:text="@string/test_word"
+            android:textColor="#fff"
+            android:textSize="30px" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

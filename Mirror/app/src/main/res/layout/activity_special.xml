@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/specialBackgroundIv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/specialShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/frg_share_mb"
+        android:layout_marginRight="@dimen/frg_share_mr"
+        android:background="@mipmap/share" />
+
+    <fr.castorflex.android.verticalviewpager.VerticalViewPager
+        android:id="@+id/specialViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+
+    <ProgressBar
+        android:id="@+id/specialProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/specialClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/frg_close_iv_right"
+        android:layout_marginTop="@dimen/frg_close_iv_top"
+        android:background="@mipmap/close1" />
+
+</com.zhy.autolayout.AutoRelativeLayout>

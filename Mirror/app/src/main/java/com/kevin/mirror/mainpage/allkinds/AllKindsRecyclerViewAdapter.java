@@ -10,15 +10,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.ImageRequest;
 import com.kevin.mirror.R;
+import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
-import com.kevin.mirror.netutils.VolleySingleton;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
 
@@ -28,6 +25,11 @@ import java.util.List;
 public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<AllKindsBean.DataBean.ListBean> allKindsBeen;
     private Context context;
+    private FragmentToDetailsOnClickListener clickListener;
+
+    public void setClickListener(FragmentToDetailsOnClickListener clickListener) {
+        this.clickListener = clickListener;
+    }
 
     public AllKindsRecyclerViewAdapter(Context context) {
         this.context = context;
@@ -63,7 +65,7 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         int viewType = getItemViewType(position);
         NetTool netTool = new NetTool();
         switch (viewType) {
@@ -86,6 +88,14 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
 
                     }
                 });
+                if (clickListener!=null) {
+                    holder1.autoLinearLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            clickListener.onFragmentToDetailsClickListener(position);
+                        }
+                    });
+                }
                 break;
             case 2:
                 final SecHolder holder2 = (SecHolder) holder;
@@ -103,7 +113,16 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
 
                     }
                 });
+                if (clickListener!=null){
+                    holder2.autoLinearLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            clickListener.onFragmentToDetailsClickListener(position);
+                        }
+                    });
+                }
                 break;
+
         }
     }
 
@@ -116,6 +135,7 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
         ImageView ivImg;
         TextView tvName, tvPrice, tvArea, tvBrand;
         ProgressBar progressBar;
+        AutoLinearLayout autoLinearLayout;
 
         public MyHolder(View itemView) {
             super(itemView);
@@ -125,6 +145,8 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
             tvArea = (TextView) itemView.findViewById(R.id.tv_allkinds_product_area);
             tvBrand = (TextView) itemView.findViewById(R.id.tv_allkinds_brand);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progressbar_item_allkinds_1);
+            autoLinearLayout= (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_1);
+
         }
     }
 
@@ -132,12 +154,14 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
         TextView textView;
         ImageView imageView;
         ProgressBar progressBar;
+        AutoLinearLayout autoLinearLayout;
 
         public SecHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.tv_allkinds_brand2);
             imageView = (ImageView) itemView.findViewById(R.id.iv_allkinds_img2);
             progressBar= (ProgressBar) itemView.findViewById(R.id.progressbar_item_allkinds_2);
+            autoLinearLayout= (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_2);
         }
     }
 }
