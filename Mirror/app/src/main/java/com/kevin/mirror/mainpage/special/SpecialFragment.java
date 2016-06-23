@@ -3,6 +3,7 @@ package com.kevin.mirror.mainpage.special;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import com.kevin.mirror.mainpage.MenuOnClickListener;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.specialtoshare.SpecialActivity;
 
 /**
  * Created by kevin on 16/6/21.
@@ -73,7 +75,8 @@ public class SpecialFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-                Intent intent=new Intent();
+                Log.d("SpecialFragment", "1");
+                Intent intent=new Intent(getActivity(), SpecialActivity.class);
                 intent.putExtra("id",specialBean.getData().getList().get(position).getStory_id());
                 startActivity(intent);
             }
