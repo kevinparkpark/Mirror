@@ -24,4 +24,5 @@ public final class URLValues {
     public static final String SPLASH_URL = "http://api.mirroreye.cn/index.php/index/started_img";
     public static final String STORYLIST_URL = "http://api.mirroreye.cn/index.php/story/story_list";
     public static final String WXPAY_URL = "http://api.mirroreye.cn/index.php/pay/wx_pay_sub";
+    public static final String NUM="13504780339";
 }

@@ -2,11 +2,14 @@ package com.kevin.mirror.mainpage;
 
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
+import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * Created by kevin on 16/6/21.
@@ -15,6 +18,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
     private ImageView iv0,iv1,iv2,iv3,iv4;
     private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt;
     private int position;
+    private AutoLinearLayout linearLayout;
 
     @Override
     public int setLayout() {
@@ -28,6 +32,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         iv2= (ImageView) view.findViewById(R.id.iv_menu_2);
         iv3= (ImageView) view.findViewById(R.id.iv_menu_3);
         iv4= (ImageView) view.findViewById(R.id.iv_menu_4);
+        linearLayout= (AutoLinearLayout) view.findViewById(R.id.autolinearlayout_menu);
 
         tvAllKinds= (TextView) view.findViewById(R.id.tv_menu_allkinds);
         tvGlass= (TextView) view.findViewById(R.id.tv_menu_glasses);
@@ -42,6 +47,8 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvSpecial.setOnClickListener(this);
         tvShopping.setOnClickListener(this);
         tvOUt.setOnClickListener(this);
+
+                setAmination();
 
     }
 
@@ -104,5 +111,13 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
     }
     public interface Menu2MainOnClickListener{
         void onMenu2MainClickListener(int position);
+    }
+    private void setAmination() {
+        AnimationSet localAnimationSet = new AnimationSet(true);
+        ScaleAnimation localScaleAnimation = new ScaleAnimation(
+                1.10000002384185791016F, 1F, 1.10000002384185791016F, 1F, 1, 0.5F, 1, 0.5F);
+        localScaleAnimation.setDuration(250L);
+        localAnimationSet.addAnimation(localScaleAnimation);
+        linearLayout.startAnimation(localAnimationSet);
     }
 }
