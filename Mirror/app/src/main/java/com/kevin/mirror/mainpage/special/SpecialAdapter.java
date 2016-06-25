@@ -2,7 +2,11 @@ package com.kevin.mirror.mainpage.special;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +19,7 @@ import com.kevin.mirror.R;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
+import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
@@ -54,8 +59,28 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
         netTool.getImage(listBeen.get(position).getStory_img(), new ImageNetListener() {
             @Override
             public void onSuccessed(Bitmap bitmap) {
-                holder.imageView.setImageBitmap(bitmap);
-                holder.progressBar.setVisibility(View.GONE);
+                if (bitmap != null) {
+
+                    ReSize reSize=new ReSize();
+                    reSize.bitmapResize(bitmap,holder.imageView);
+                    holder.progressBar.setVisibility(View.GONE);
+                    bitmap.recycle();
+
+//                    int d = bitmap.getHeight() -(bitmap.getWidth() * holder.imageView.getHeight()/holder.imageView.getWidth());
+//                    Log.d("SpecialAdapter", "d:" + d);
+//                    Bitmap out = Bitmap.createBitmap(bitmap.getWidth(),bitmap.getHeight()-d, Bitmap.Config.ARGB_4444);
+//                    Canvas canvas = new Canvas(out);
+//
+//                   // canvas.drawBitmap(bitmap,0,0,new Paint());
+//                    Rect src = new Rect(0,0,bitmap.getWidth(),bitmap.getHeight()-d);
+//                    Rect dst = new Rect(0,0,out.getWidth(),out.getHeight());
+//                    canvas.drawBitmap(bitmap,src,dst,null);
+//                    bitmap.recycle();
+//                    Log.d("SpecialAdapter", "out.getHeight():" + out.getHeight());
+//                  //  Log.d("SpecialAdapter", "bitmap.getHeight():" + bitmap.getHeight());
+//                    holder.imageView.setImageBitmap(out);
+//                    holder.progressBar.setVisibility(View.GONE);
+                }
             }
 
             @Override

@@ -24,6 +24,8 @@ public class VolleySingleton {
     private VolleySingleton() {
 
         requestQueue= Volley.newRequestQueue(MyApp.context);
+
+//        imageLoader=new ImageLoader(requestQueue,null);
         imageLoader=new ImageLoader(requestQueue,new MemoryCache());
         gson = new Gson();
     }

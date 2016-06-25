@@ -47,6 +47,7 @@ public class SpecialFragment extends BaseFragment {
     protected void initData() {
         tvTitle.setText("专题分享");
         tvDetails.setText("显示排序为 最新推荐");
+
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +67,7 @@ public class SpecialFragment extends BaseFragment {
                 specialBean = gson.fromJson(result, SpecialBean.class);
                 adapter.setListBeen(specialBean.getData().getList());
                 recyclerView.setAdapter(adapter);
+                //adapter story_id
                 adapter.setClickListener(new FragmentToDetailsOnClickListener() {
                     @Override
                     public void onFragmentToDetailsClickListener(int position) {
@@ -81,6 +83,7 @@ public class SpecialFragment extends BaseFragment {
 
             }
         });
+
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {

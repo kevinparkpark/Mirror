@@ -17,6 +17,7 @@ import com.kevin.mirror.mainpage.allkinds.AllKindsBean;
 import com.kevin.mirror.mainpage.sunglasses.SunGlassesBean;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
+import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
@@ -60,8 +61,11 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.MyHoder>
             netTool.getImage(listBeen.get(position).getGoods_img(), new ImageNetListener() {
                 @Override
                 public void onSuccessed(Bitmap bitmap) {
-                    holder.ivImg.setImageBitmap(bitmap);
+                    ReSize reSize=new ReSize();
+                    reSize.bitmapResize(bitmap,holder.ivImg);
+//                    holder.ivImg.setImageBitmap(bitmap);
                     holder.progressBar.setVisibility(View.GONE);
+                    bitmap.recycle();
                 }
 
                 @Override

@@ -37,5 +37,15 @@ public class DBUtils {
     public <T>void deleteAll(Class<T> clazz){
         liteOrm.delete(clazz);
     }
-
+    //update
+    public void updateQuery(DbBean dbBean,String where,String goodsId,String goodsUrl,String name,
+                          String price,String area,String brand  ){
+        QueryBuilder list=new QueryBuilder<>(DbBean.class).whereEquals(where,DbBean.GOODID);
+        if (liteOrm.query(list).size()>0){
+            delete(liteOrm.query(list));
+            insertDB(new DbBean(goodsId,goodsUrl,name,price,area,brand));
+        }else {
+            insertDB(new DbBean(goodsId,goodsUrl,name,price,area,brand));
+        }
+    }
 }

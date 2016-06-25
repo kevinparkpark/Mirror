@@ -7,10 +7,6 @@ import java.util.List;
  */
 public class SunGlassesBean {
 
-    /**
-     * result : 1
-     * msg :
-     */
 
     private String result;
     private String msg;
@@ -131,6 +127,12 @@ public class SunGlassesBean {
              */
 
             private List<DesignDesBean> design_des;
+            /**
+             * type : 9
+             * data : http://image.mirroreye.cn/weibiaoti17f213c0fa95c4371f3d627b287e72402.jpg
+             */
+
+            private List<WearVideoBean> wear_video;
 
             public String getGoods_id() {
                 return goods_id;
@@ -268,6 +270,14 @@ public class SunGlassesBean {
                 this.design_des = design_des;
             }
 
+            public List<WearVideoBean> getWear_video() {
+                return wear_video;
+            }
+
+            public void setWear_video(List<WearVideoBean> wear_video) {
+                this.wear_video = wear_video;
+            }
+
             public static class GoodsDataBean {
                 private String introContent;
                 private String cellHeight;
@@ -352,6 +362,27 @@ public class SunGlassesBean {
 
                 public void setType(String type) {
                     this.type = type;
+                }
+            }
+
+            public static class WearVideoBean {
+                private String type;
+                private String data;
+
+                public String getType() {
+                    return type;
+                }
+
+                public void setType(String type) {
+                    this.type = type;
+                }
+
+                public String getData() {
+                    return data;
+                }
+
+                public void setData(String data) {
+                    this.data = data;
                 }
             }
         }

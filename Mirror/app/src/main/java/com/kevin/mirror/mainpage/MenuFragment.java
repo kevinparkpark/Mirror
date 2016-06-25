@@ -1,5 +1,7 @@
 package com.kevin.mirror.mainpage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationSet;
@@ -7,6 +9,9 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kevin.mirror.DB.DBUtils;
+import com.kevin.mirror.DB.DbBean;
+import com.kevin.mirror.MainActivity;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -16,9 +21,10 @@ import com.zhy.autolayout.AutoLinearLayout;
  */
 public class MenuFragment extends BaseFragment implements View.OnClickListener {
     private ImageView iv0,iv1,iv2,iv3,iv4;
-    private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt;
+    private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt,tvBack;
     private int position;
     private AutoLinearLayout linearLayout;
+    private DBUtils dbUtils=new DBUtils();
 
     @Override
     public int setLayout() {
@@ -40,6 +46,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvShopping= (TextView) view.findViewById(R.id.tv_menu_shopping);
         tvOUt= (TextView) view.findViewById(R.id.tv_menu_out);
         tvSpecial= (TextView) view.findViewById(R.id.tv_menu_special);
+        tvBack= (TextView) view.findViewById(R.id.tv_menu2main);
 
         tvAllKinds.setOnClickListener(this);
         tvGlass.setOnClickListener(this);
@@ -47,11 +54,21 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvSpecial.setOnClickListener(this);
         tvShopping.setOnClickListener(this);
         tvOUt.setOnClickListener(this);
+        linearLayout.setOnClickListener(this);
+
+        //设置透明度
+        tvAllKinds.setAlpha(0.25f);
+        tvGlass.setAlpha(0.25f);
+        tvSunglass.setAlpha(0.25f);
+        tvSpecial.setAlpha(0.25f);
+        tvShopping.setAlpha(0.25f);
+        tvOUt.setAlpha(0.25f);
+        tvBack.setAlpha(0.25f);
 
                 setAmination();
 
     }
-
+    //接收visibility参数
     @Override
     protected void initData() {
         position=getArguments().getInt("position");
@@ -82,10 +99,20 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
                 iv4.setVisibility(View.VISIBLE);
                 break;
             case R.id.tv_menu2main:
-
+                ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(0);
                 break;
             case R.id.tv_menu_out:
+                //设置sharedperferense 退出设置0;
+                SharedPreferences sp=context.getSharedPreferences("token", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("token","0");
+                editor.commit();
+
+                dbUtils.deleteAll(DbBean.class);
                 ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(0);
+                break;
+            case R.id.autolinearlayout_menu:
+                ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(position);
                 break;
         }
     }
@@ -94,24 +121,30 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         switch (position) {
             case 0:
                 iv0.setVisibility(View.VISIBLE);
+                tvAllKinds.setAlpha(1f);
                 break;
             case 1:
                 iv1.setVisibility(View.VISIBLE);
+                tvGlass.setAlpha(1f);
                 break;
             case 2:
                 iv2.setVisibility(View.VISIBLE);
+                tvSunglass.setAlpha(1f);
                 break;
             case 3:
                 iv3.setVisibility(View.VISIBLE);
+                tvSpecial.setAlpha(1f);
                 break;
             case 4:
                 iv4.setVisibility(View.VISIBLE);
+                tvShopping.setAlpha(1f);
                 break;
         }
     }
     public interface Menu2MainOnClickListener{
         void onMenu2MainClickListener(int position);
     }
+    //进入menufragment动画
     private void setAmination() {
         AnimationSet localAnimationSet = new AnimationSet(true);
         ScaleAnimation localScaleAnimation = new ScaleAnimation(
