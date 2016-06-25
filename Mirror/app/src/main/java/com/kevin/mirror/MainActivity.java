@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         setContentView(R.layout.activity_main);
         ivLogo = (ImageView) findViewById(R.id.iv_main_logo);
         tvLogin= (TextView) findViewById(R.id.tv_main_login);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         viewPager = (VerticalViewPager) findViewById(R.id.verticalviewpager_main);
         adapter = new MainAdapter(getSupportFragmentManager());

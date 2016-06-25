@@ -15,6 +15,7 @@ import com.kevin.mirror.R;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
+import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
@@ -57,8 +58,12 @@ public class SunGlassesAdapter extends RecyclerView.Adapter<SunGlassesAdapter.My
         netTool.getImage(listBeen.get(position).getGoods_img(), new ImageNetListener() {
             @Override
             public void onSuccessed(Bitmap bitmap) {
-                holder.ivImg.setImageBitmap(bitmap);
+
+                ReSize reSize=new ReSize();
+                reSize.bitmapResize(bitmap,holder.ivImg);
+//                holder.ivImg.setImageBitmap(bitmap);
                 holder.progressBar.setVisibility(View.GONE);
+                bitmap.recycle();
             }
 
             @Override

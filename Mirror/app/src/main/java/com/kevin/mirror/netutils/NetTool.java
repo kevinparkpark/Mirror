@@ -81,6 +81,7 @@ public class NetTool {
                 body.put("token", token);
                 body.put("device_type", devicetype);
                 body.put("category_id", category);
+                body.put("version","1.0.1");
                 return body;
             }
         };
