@@ -6,17 +6,8 @@
     <ImageView
         android:id="@+id/specialBackgroundIv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <ImageView
-        android:id="@+id/specialShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/frg_share_mb"
-        android:layout_marginRight="@dimen/frg_share_mr"
-        android:background="@mipmap/share" />
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
 
     <fr.castorflex.android.verticalviewpager.VerticalViewPager
         android:id="@+id/specialViewPager"
@@ -41,4 +32,13 @@
         android:layout_marginTop="@dimen/frg_close_iv_top"
         android:background="@mipmap/close1" />
 
+    <ImageView
+        android:id="@+id/specialShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/frg_share_mb"
+        android:layout_marginRight="@dimen/frg_share_mr"
+        android:background="@mipmap/share" />
 </com.zhy.autolayout.AutoRelativeLayout>
