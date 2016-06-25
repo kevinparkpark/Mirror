@@ -58,6 +58,7 @@ public class SpecialDetailsAdapter extends PagerAdapter {
         fiveTitle = (TextView) view.findViewById(R.id.fiveTitle);
         fiveSmallTitle = (TextView) view.findViewById(R.id.fiveSmallTitle);
         category = specialDetailsBean.getData().getStory_data().getText_array().get(position).getCategory();
+
         switch (category) {
             case "styleOne":
                 oneRl.setVisibility(View.VISIBLE);
@@ -97,8 +98,9 @@ public class SpecialDetailsAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return specialDetailsBean != null && specialDetailsBean.getData().getStory_data().getImg_array().size() > 0 ?
-                specialDetailsBean.getData().getStory_data().getImg_array().size() : 0;
+
+        return specialDetailsBean != null && specialDetailsBean.getData().getStory_data().getText_array().size() > 0 ?
+                specialDetailsBean.getData().getStory_data().getText_array().size() : 0;
     }
 
     @Override
