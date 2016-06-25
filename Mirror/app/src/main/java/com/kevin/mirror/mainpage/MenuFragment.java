@@ -16,7 +16,7 @@ import com.zhy.autolayout.AutoLinearLayout;
  */
 public class MenuFragment extends BaseFragment implements View.OnClickListener {
     private ImageView iv0,iv1,iv2,iv3,iv4;
-    private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt;
+    private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt,tvBack;
     private int position;
     private AutoLinearLayout linearLayout;
 
@@ -40,6 +40,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvShopping= (TextView) view.findViewById(R.id.tv_menu_shopping);
         tvOUt= (TextView) view.findViewById(R.id.tv_menu_out);
         tvSpecial= (TextView) view.findViewById(R.id.tv_menu_special);
+        tvBack= (TextView) view.findViewById(R.id.tv_menu2main);
 
         tvAllKinds.setOnClickListener(this);
         tvGlass.setOnClickListener(this);
@@ -47,6 +48,15 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvSpecial.setOnClickListener(this);
         tvShopping.setOnClickListener(this);
         tvOUt.setOnClickListener(this);
+        linearLayout.setOnClickListener(this);
+
+        tvAllKinds.setAlpha(0.25f);
+        tvGlass.setAlpha(0.25f);
+        tvSunglass.setAlpha(0.25f);
+        tvSpecial.setAlpha(0.25f);
+        tvShopping.setAlpha(0.25f);
+        tvOUt.setAlpha(0.25f);
+        tvBack.setAlpha(0.25f);
 
                 setAmination();
 
@@ -87,6 +97,9 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
             case R.id.tv_menu_out:
                 ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(0);
                 break;
+            case R.id.autolinearlayout_menu:
+                ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(position);
+                break;
         }
     }
 
@@ -94,18 +107,23 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         switch (position) {
             case 0:
                 iv0.setVisibility(View.VISIBLE);
+                tvAllKinds.setAlpha(1f);
                 break;
             case 1:
                 iv1.setVisibility(View.VISIBLE);
+                tvGlass.setAlpha(1f);
                 break;
             case 2:
                 iv2.setVisibility(View.VISIBLE);
+                tvSunglass.setAlpha(1f);
                 break;
             case 3:
                 iv3.setVisibility(View.VISIBLE);
+                tvSpecial.setAlpha(1f);
                 break;
             case 4:
                 iv4.setVisibility(View.VISIBLE);
+                tvShopping.setAlpha(1f);
                 break;
         }
     }

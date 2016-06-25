@@ -7,15 +7,9 @@ import java.util.List;
  */
 public class AllKindsBean {
 
-    /**
-     * result : 1
-     * msg :
-     */
 
     private String result;
     private String msg;
-    /**
-     */
 
     private DataBean data;
 
@@ -51,8 +45,6 @@ public class AllKindsBean {
          */
 
         private PaginationBean pagination;
-        /**
-         */
 
         private List<ListBean> list;
 
@@ -139,14 +131,6 @@ public class AllKindsBean {
                 private String brand;
                 private String info_des;
                 private String goods_share;
-                /**
-                 * introContent : 作为韩国潮牌太阳镜，SPRING STRINGS被许多国际人士所热爱。包括韩国女团T-ARA,SISTAR以及各路来自全国各地的潮人都经常配戴，是时尚达人不可或缺的太阳镜。
-                 * cellHeight : 590
-                 * name :
-                 * location : 來自時尚之都韓國
-                 * country : 韓國
-                 * english : The frame comes from Korea
-                 */
 
                 private List<GoodsDataBean> goods_data;
                 /**
@@ -156,6 +140,12 @@ public class AllKindsBean {
                  */
 
                 private List<DesignDesBean> design_des;
+                /**
+                 * type : 9
+                 * data : http://image.mirroreye.cn/weibiaoti17f213c0fa95c4371f3d627b287e72402.jpg
+                 */
+
+                private List<WearVideoBean> wear_video;
 
                 public String getGoods_id() {
                     return goods_id;
@@ -293,6 +283,14 @@ public class AllKindsBean {
                     this.design_des = design_des;
                 }
 
+                public List<WearVideoBean> getWear_video() {
+                    return wear_video;
+                }
+
+                public void setWear_video(List<WearVideoBean> wear_video) {
+                    this.wear_video = wear_video;
+                }
+
                 public static class GoodsDataBean {
                     private String introContent;
                     private String cellHeight;
@@ -377,6 +375,27 @@ public class AllKindsBean {
 
                     public void setType(String type) {
                         this.type = type;
+                    }
+                }
+
+                public static class WearVideoBean {
+                    private String type;
+                    private String data;
+
+                    public String getType() {
+                        return type;
+                    }
+
+                    public void setType(String type) {
+                        this.type = type;
+                    }
+
+                    public String getData() {
+                        return data;
+                    }
+
+                    public void setData(String data) {
+                        this.data = data;
                     }
                 }
             }

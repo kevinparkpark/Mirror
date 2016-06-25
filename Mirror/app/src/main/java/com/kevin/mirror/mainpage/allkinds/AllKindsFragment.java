@@ -1,5 +1,6 @@
 package com.kevin.mirror.mainpage.allkinds;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,12 +19,14 @@ import com.kevin.mirror.mainpage.MenuOnClickListener;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.specialtoshare.SpecialActivity;
 
 /**
  * Created by kevin on 16/6/21.
  */
 public class AllKindsFragment extends BaseFragment {
     private AllKindsBean allKindsBean;
+    private AllKind3Bean allKind3Bean;
     private TextView tvTitle, tvDetails;
     private AllKindsRecyclerViewAdapter adapter;
     private RecyclerView recyclerView;
@@ -68,6 +71,19 @@ public class AllKindsFragment extends BaseFragment {
 
             }
         });
+        netTool.postRequest(URLValues.ALLKINDS_URL, "", "2", "", new NetListener() {
+            @Override
+            public void onSuccessed(String result) {
+                Gson gson=new Gson();
+                allKind3Bean=gson.fromJson(result,AllKind3Bean.class);
+                adapter.setAllKinds3Been(allKind3Bean.getData().getList());
+            }
+
+            @Override
+            public void onFailed(VolleyError error) {
+
+            }
+        });
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,9 +93,15 @@ public class AllKindsFragment extends BaseFragment {
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
+                if (allKindsBean.getData().getList().get(position).getType().equals("1")){
 //                Intent intent=new Intent();
 //                intent.putExtra("position",position);
 //                startActivity(intent);
+                }else {
+                    Intent intent=new Intent(context, SpecialActivity.class);
+                    intent.putExtra("id",allKind3Bean.getData().getList().get(position).getData_info().getStory_id());
+                    startActivity(intent);
+                }
             }
         });
     }

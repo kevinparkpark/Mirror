@@ -1,7 +1,9 @@
 package com.kevin.mirror.mainpage.glasses;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -11,9 +13,8 @@ import com.google.gson.Gson;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.mainpage.glasses.goodshare.GoodShareActivity;
 import com.kevin.mirror.mainpage.MenuOnClickListener;
-import com.kevin.mirror.mainpage.allkinds.AllKindsBean;
-import com.kevin.mirror.mainpage.allkinds.AllKindsRecyclerViewAdapter;
 import com.kevin.mirror.mainpage.sunglasses.SunGlassesBean;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
@@ -75,9 +76,9 @@ public class GlassesFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-//                Intent intent=new Intent();
-//                intent.putExtra("position",position);
-//                startActivity(intent);
+                Intent intent=new Intent(context, GoodShareActivity.class);
+                intent.putExtra("position",position);
+                startActivity(intent);
             }
         });
     }

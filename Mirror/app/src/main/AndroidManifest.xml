@@ -33,6 +33,7 @@
         </meta-data>
 
         <activity android:name=".specialtoshare.SpecialActivity" />
+        <activity android:name=".mainpage.glasses.goodshare.GoodShareActivity"/>
     </application>
 
 </manifest>

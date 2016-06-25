@@ -15,6 +15,7 @@ import com.kevin.mirror.R;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
+import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
@@ -24,8 +25,15 @@ import java.util.List;
  */
 public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<AllKindsBean.DataBean.ListBean> allKindsBeen;
+    private List<AllKind3Bean.DataBean.ListBean> allKinds3Been;
     private Context context;
     private FragmentToDetailsOnClickListener clickListener;
+    private ReSize reSize=new ReSize();
+
+    public void setAllKinds3Been(List<AllKind3Bean.DataBean.ListBean> allKinds3Been) {
+        this.allKinds3Been = allKinds3Been;
+        notifyDataSetChanged();
+    }
 
     public void setClickListener(FragmentToDetailsOnClickListener clickListener) {
         this.clickListener = clickListener;
@@ -79,8 +87,10 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 netTool.getImage(allKindsBeen.get(position).getData_info().getGoods_img(), new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {
-                        holder1.ivImg.setImageBitmap(bitmap);
+                        reSize.bitmapResize(bitmap,holder1.ivImg);
+//                        holder1.ivImg.setImageBitmap(bitmap);
                         holder1.progressBar.setVisibility(View.GONE);
+                        bitmap.recycle();
                     }
 
                     @Override
@@ -99,13 +109,17 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 break;
             case 2:
                 final SecHolder holder2 = (SecHolder) holder;
-                holder2.textView.setText("mirror人物｜小眾氣質完美詮釋");
-                String url = "http://image.mirroreye.cn/28416d5fc2a7e83582324c809e55d1c09.jpg";
+                holder2.textView.setText(allKinds3Been.get(position).getData_info().getStory_title());
+                String url=allKinds3Been.get(position).getData_info().getStory_img();
+//                holder2.textView.setText("mirror人物｜小眾氣質完美詮釋");
+//                String url = "http://image.mirroreye.cn/28416d5fc2a7e83582324c809e55d1c09.jpg";
                 netTool.getImage(url, new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {
-                        holder2.imageView.setImageBitmap(bitmap);
+                        reSize.bitmapResize(bitmap,holder2.imageView);
+//                        holder2.imageView.setImageBitmap(bitmap);
                         holder2.progressBar.setVisibility(View.GONE);
+                        bitmap.recycle();
                     }
 
                     @Override
