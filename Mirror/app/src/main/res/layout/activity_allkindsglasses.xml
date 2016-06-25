@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/activity_allKindsGlasses_rLayout">
 
-    <FrameLayout
+
+    <ImageView
+        android:id="@+id/iv_background_allKindsGlasses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_replace"/>
+        android:layout_weight="1"
+        />
 
-</LinearLayout>
+    <ListView
+        android:id="@+id/lv_down_allKindsGlasses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none">
+
+    </ListView>
+
+    <ListView
+        android:id="@+id/lv_top_allKindsGlasses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+        android:divider="@null"
+        android:scrollbars="none"></ListView>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_menu_allKindsGlasses"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/goback"
+            android:layout_marginLeft="20px"
+            android:id="@+id/iv_goBack_menu_allKindsGlasses"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_wearPic_menu_allKindsGlasses"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/iv_goBack_menu_allKindsGlasses"
+            android:layout_marginLeft="62px"
+            android:background="@mipmap/wear_button"
+            android:paddingTop="25px"
+            android:text="佩戴图集"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40px"
+            android:background="@mipmap/buybutton"
+            android:paddingLeft="40dp"
+            android:paddingTop="12dp"
+            android:text="购买"
+            android:textSize="20sp"
+            android:id="@+id/tv_buy_menu_allKindsGlasses"
+
+            />
+
+
+    </RelativeLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>

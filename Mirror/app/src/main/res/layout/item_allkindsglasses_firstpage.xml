@@ -1,134 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#50000000"
-    android:id="@+id/relativeLayout_allKindsGlasses_firstPage">
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="60px"
-        android:layout_marginTop="150px"
-        android:src="@mipmap/share" />
-
-    <com.zhy.autolayout.AutoLinearLayout
-        android:id="@+id/linerLayout_allKindsGlasses_firstPage"
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="60px"
-        android:layout_marginRight="60px"
-        android:layout_marginTop="253px"
-        android:background="@mipmap/bg05"
-        android:orientation="vertical">
+        android:layout_height="1140px"
+        android:background="#33000000"
+        android:id="@+id/header_allKindsGlasses_rLayout">
 
-        <TextView
-            android:id="@+id/tv_allKindsGlasses_firstPage"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60px"
+            android:layout_marginTop="150px"
+            android:src="@mipmap/share"
+            android:id="@+id/header_allKindsGlasses_share"/>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/linerLayout_allKindsGlasses_firstPage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="38px"
-            android:gravity="center"
-            android:text="SPRING STRINGS"
-            android:textColor="#fff"
-            android:textSize="70px"
-            android:textStyle="bold" />
-
-        <com.zhy.autolayout.AutoRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:layout_marginTop="54px">
-
-            <ImageView
-                android:id="@+id/iv_allKindsGlasses_firstPage"
-                android:layout_width="510px"
-                android:layout_height="12px"
-                android:layout_centerHorizontal="true"
-                android:background="@mipmap/underthetitleofline" />
+            android:layout_marginLeft="60px"
+            android:layout_marginRight="60px"
+            android:layout_marginTop="253px"
+            android:background="@mipmap/bg05"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_allKindsGlasses_firstPage"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_allKindsGlasses_firstPage"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10px"
-                android:text="女款｜晶粉貓眼太陽鏡"
+                android:layout_marginTop="38px"
+                android:gravity="center"
+                android:text="SPRING STRINGS"
                 android:textColor="#fff"
-                android:textSize="42px"
-                android:textStyle="bold"
-                android:id="@+id/tv_allKindsGlasses_brand_firstPage"/>
-
-            <ImageView
-                android:layout_width="510px"
-                android:layout_height="12px"
-                android:layout_below="@id/iv_allKindsGlasses_firstPage"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="76px"
-                android:background="@mipmap/underthetitleofline" />
-
-        </com.zhy.autolayout.AutoRelativeLayout>
-
-        <TextView
-            android:id="@+id/tv_content_allKindsGlasses_firstPager"
-            android:layout_width="510px"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50px"
-            android:text="来自韩国的眼镜潮牌SPRING STRINGS是现代与复古的完美承载体，以古典与怀旧为基本设计风格，再融合现代的流行元素，深受潮人们的青睐。 猫眼型镜框设计感十足。既要典雅尊贵，又要时尚弄潮儿一般的摩登姿态，低调中展现别样风情，彰显独特魅力。 "
-            android:textColor="#fff"
-            android:textSize="24px"
-            android:textStyle="bold" />
-
-        <com.zhy.autolayout.AutoRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48px">
-
-            <TextView
-                android:id="@+id/tv_price_allKindsGlasses_firstPager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="1280"
-                android:textColor="#fff"
-                android:textSize="36px"
+                android:textSize="70px"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="35px"
-                android:layout_height="30px"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@id/tv_price_allKindsGlasses_firstPager"
-                android:background="@mipmap/yuan" />
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginTop="54px">
+
+                <ImageView
+                    android:id="@+id/iv_allKindsGlasses_firstPage"
+                    android:layout_width="510px"
+                    android:layout_height="12px"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/underthetitleofline" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_allKindsGlasses_firstPage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10px"
+                    android:text="女款｜晶粉貓眼太陽鏡"
+                    android:textColor="#fff"
+                    android:textSize="42px"
+                    android:textStyle="bold"
+                    android:id="@+id/tv_allKindsGlasses_brand_firstPage"/>
+
+                <ImageView
+                    android:layout_width="510px"
+                    android:layout_height="12px"
+                    android:layout_below="@id/iv_allKindsGlasses_firstPage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="76px"
+                    android:background="@mipmap/underthetitleofline" />
+
+            </com.zhy.autolayout.AutoRelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_content_allKindsGlasses_firstPager"
+                android:layout_width="510px"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50px"
+                android:text="来自韩国的眼镜潮牌SPRING STRINGS是现代与复古的完美承载体，以古典与怀旧为基本设计风格，再融合现代的流行元素，深受潮人们的青睐。 猫眼型镜框设计感十足。既要典雅尊贵，又要时尚弄潮儿一般的摩登姿态，低调中展现别样风情，彰显独特魅力。 "
+                android:textColor="#fff"
+                android:textSize="24px"
+                android:textStyle="bold" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48px">
+
+                <TextView
+                    android:id="@+id/tv_price_allKindsGlasses_firstPager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="1280"
+                    android:textColor="#fff"
+                    android:textSize="36px"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="35px"
+                    android:layout_height="30px"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/tv_price_allKindsGlasses_firstPager"
+                    android:background="@mipmap/yuan" />
 
 
-        </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoRelativeLayout>
 
 
-    </com.zhy.autolayout.AutoLinearLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="滑动浏览详情"
-        android:layout_centerHorizontal="true"
-        android:textColor="#fff"
-        android:textSize="40px"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="75px"
-        android:id="@+id/tv_prompt_allKindsGlasses_firstPager"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="滑动浏览详情"
+            android:layout_centerHorizontal="true"
+            android:textColor="#fff"
+            android:textSize="40px"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="75px"
+            android:id="@+id/tv_prompt_allKindsGlasses_firstPager"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/the_drop_down_arrow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="35px"/>
+
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:background="#00000000"/>
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:src="@mipmap/the_drop_down_arrow"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35px"/>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/tv_brandTitle_allKindsGlasses"
+        android:text="女款｜晶粉貓眼太陽鏡"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:textSize="32px"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="12px"
+        android:layout_marginLeft="54px"
+        android:layout_marginRight="54px"
+        android:layout_marginTop="24px"
+        android:background="@mipmap/black_rail" />
 
 
 
-</com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>
 
 
 

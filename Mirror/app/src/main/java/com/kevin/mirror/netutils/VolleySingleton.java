@@ -4,6 +4,7 @@ package com.kevin.mirror.netutils;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.kevin.mirror.MyApp;
 
 /**
@@ -13,6 +14,7 @@ public class VolleySingleton {
     private static VolleySingleton ourInstance = new VolleySingleton();
     private RequestQueue requestQueue;
     private ImageLoader imageLoader;
+    private Gson gson;
 
     public static VolleySingleton getInstance() {
 
@@ -23,6 +25,7 @@ public class VolleySingleton {
 
         requestQueue= Volley.newRequestQueue(MyApp.context);
         imageLoader=new ImageLoader(requestQueue,new MemoryCache());
+        gson = new Gson();
     }
 
     public RequestQueue getRequestQueue() {
@@ -31,5 +34,8 @@ public class VolleySingleton {
 
     public ImageLoader getImageLoader() {
         return imageLoader;
+    }
+    public Gson getGson(){
+        return gson;
     }
 }

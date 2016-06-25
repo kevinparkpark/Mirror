@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".allkindsglasses.AllKindsGlassesActivity" />
         <activity android:name=".loginandregister.LoginActivity" />
         <activity android:name=".loginandregister.RegisterActivity" />
 
