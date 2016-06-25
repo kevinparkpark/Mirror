@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout
+<com.zhy.autolayout.AutoRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#00000000"
     android:orientation="vertical">
 
 
@@ -14,7 +14,7 @@
         android:layout_marginLeft="65px"
         android:layout_marginRight="65px"
         android:background="@android:color/black"
-        android:layout_marginTop="466px">
+        android:layout_marginTop="300dp">
 
         <ImageView
             android:id="@+id/iv_line_allKindsGlasses_secPage"
@@ -22,7 +22,8 @@
             android:layout_height="12px"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="28px"
-            android:background="@mipmap/underthetitleofline" />
+            android:background="@mipmap/underthetitleofline"
+            />
 
         <TextView
             android:id="@+id/tv_CT_allKindsGlasses_secPage"
@@ -87,4 +88,4 @@
     </com.zhy.autolayout.AutoRelativeLayout>
 
 
-</com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

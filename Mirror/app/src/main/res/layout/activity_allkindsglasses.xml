@@ -5,12 +5,7 @@
     android:id="@+id/activity_allKindsGlasses_rLayout">
 
 
-    <ImageView
-        android:id="@+id/iv_background_allKindsGlasses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        />
+
 
     <ListView
         android:id="@+id/lv_down_allKindsGlasses"
@@ -27,7 +22,8 @@
         android:layout_height="match_parent"
         android:background="#00000000"
         android:divider="@null"
-        android:scrollbars="none"></ListView>
+        android:scrollbars="none"
+        ></ListView>
 
 
     <RelativeLayout
@@ -35,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <ImageView
             android:layout_width="wrap_content"

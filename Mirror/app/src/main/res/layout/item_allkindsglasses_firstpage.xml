@@ -6,7 +6,7 @@
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1140px"
+        android:layout_height="1280px"
         android:background="#33000000"
         android:id="@+id/header_allKindsGlasses_rLayout">
 

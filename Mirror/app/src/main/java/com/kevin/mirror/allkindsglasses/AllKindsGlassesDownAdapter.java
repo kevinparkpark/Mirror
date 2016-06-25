@@ -2,6 +2,7 @@ package com.kevin.mirror.allkindsglasses;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
 import com.kevin.mirror.netutils.VolleySingleton;
+import com.kevin.mirror.utils.ReSize;
 
 import java.util.List;
 
@@ -26,6 +28,8 @@ public class AllKindsGlassesDownAdapter extends BaseAdapter {
     private Context context;
     private List<AllKindsBean.DataBean.ListBean.DataInfoBean.DesignDesBean>designDesBeen;
     private NetTool netTool;
+    private ReSize reSize=new ReSize();
+
 
     public AllKindsGlassesDownAdapter(Context context) {
         this.context = context;
@@ -63,18 +67,24 @@ public class AllKindsGlassesDownAdapter extends BaseAdapter {
             viewHolder = (MyViewHolder) convertView.getTag();
         }
         viewHolder.imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        netTool = new NetTool();
         final MyViewHolder finalViewHolder = viewHolder;
-        netTool.getImage(URLValues.ALLKINDS_URL, new ImageNetListener() {
-            @Override
-            public void onSuccessed(Bitmap bitmap) {
-                finalViewHolder.imageView.setImageBitmap(bitmap);
-            }
+        if (designDesBeen.get(position).getImg()!=null) {
+            netTool.getImage(designDesBeen.get(position).getImg(), new ImageNetListener() {
+                @Override
+                public void onSuccessed(Bitmap bitmap) {
+//                reSize.bitmapResize(bitmap,finalViewHolder.imageView);
+                    finalViewHolder.imageView.setImageBitmap(bitmap);
+                }
 
-            @Override
-            public void onFailed(VolleyError error) {
+                @Override
+                public void onFailed(VolleyError error) {
 
-            }
-        });
+                }
+
+            });
+        }
+        Log.d("AllKindsGlassesDownAdap", designDesBeen.get(position).getImg());
 
         return convertView;
     }
