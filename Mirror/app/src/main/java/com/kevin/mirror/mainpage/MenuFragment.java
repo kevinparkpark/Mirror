@@ -1,5 +1,7 @@
 package com.kevin.mirror.mainpage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationSet;
@@ -7,6 +9,9 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.kevin.mirror.DB.DBUtils;
+import com.kevin.mirror.DB.DbBean;
+import com.kevin.mirror.MainActivity;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -19,6 +24,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
     private TextView tvAllKinds,tvGlass,tvSunglass,tvSpecial,tvShopping,tvOUt,tvBack;
     private int position;
     private AutoLinearLayout linearLayout;
+    private DBUtils dbUtils=new DBUtils();
 
     @Override
     public int setLayout() {
@@ -50,6 +56,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvOUt.setOnClickListener(this);
         linearLayout.setOnClickListener(this);
 
+        //设置透明度
         tvAllKinds.setAlpha(0.25f);
         tvGlass.setAlpha(0.25f);
         tvSunglass.setAlpha(0.25f);
@@ -61,7 +68,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
                 setAmination();
 
     }
-
+    //接收visibility参数
     @Override
     protected void initData() {
         position=getArguments().getInt("position");
@@ -92,9 +99,16 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
                 iv4.setVisibility(View.VISIBLE);
                 break;
             case R.id.tv_menu2main:
-
+                ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(0);
                 break;
             case R.id.tv_menu_out:
+                //设置sharedperferense 退出设置0;
+                SharedPreferences sp=context.getSharedPreferences("token", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.putString("token","0");
+                editor.commit();
+
+                dbUtils.deleteAll(DbBean.class);
                 ((Menu2MainOnClickListener)getActivity()).onMenu2MainClickListener(0);
                 break;
             case R.id.autolinearlayout_menu:
@@ -130,6 +144,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
     public interface Menu2MainOnClickListener{
         void onMenu2MainClickListener(int position);
     }
+    //进入menufragment动画
     private void setAmination() {
         AnimationSet localAnimationSet = new AnimationSet(true);
         ScaleAnimation localScaleAnimation = new ScaleAnimation(

@@ -111,8 +111,6 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 final SecHolder holder2 = (SecHolder) holder;
                 holder2.textView.setText(allKinds3Been.get(position).getData_info().getStory_title());
                 String url=allKinds3Been.get(position).getData_info().getStory_img();
-//                holder2.textView.setText("mirror人物｜小眾氣質完美詮釋");
-//                String url = "http://image.mirroreye.cn/28416d5fc2a7e83582324c809e55d1c09.jpg";
                 netTool.getImage(url, new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {

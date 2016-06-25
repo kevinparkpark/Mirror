@@ -72,10 +72,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
-
+    //发送短信验证码
     private void postSendCode(String url, String phoneNum, String captcha, String ps) {
         NetTool netTool = new NetTool();
-        netTool.postLoginOrRegister(url, phoneNum, captcha, ps, new NetListener() {
+        netTool.postRegister(url, phoneNum, captcha, ps, new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
     }
-
+    //设置验证码按钮时间
     public void timerCount() {
         CountDownTimer timer = new CountDownTimer(60000, 1000) {
             @Override

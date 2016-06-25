@@ -5,8 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AnimationSet;
-import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +14,7 @@ import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.mainpage.MenuOnClickListener;
+import com.kevin.mirror.netutils.NetBeanListener;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
@@ -71,6 +70,7 @@ public class AllKindsFragment extends BaseFragment {
 
             }
         });
+        //type2 data
         netTool.postRequest(URLValues.ALLKINDS_URL, "", "2", "", new NetListener() {
             @Override
             public void onSuccessed(String result) {
@@ -84,12 +84,14 @@ public class AllKindsFragment extends BaseFragment {
 
             }
         });
+
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MenuOnClickListener) getActivity()).onMenuClickListener(0);
             }
         });
+        //type区分 点击事件
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {

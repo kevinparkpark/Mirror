@@ -1,6 +1,7 @@
 package com.kevin.mirror.loginandregister;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.DB.DBUtils;
+import com.kevin.mirror.DB.DbBean;
 import com.kevin.mirror.R;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
@@ -42,6 +45,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         tvLogin.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         ivClose.setOnClickListener(this);
+
+        //监听etps
         etPs.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -55,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void afterTextChanged(Editable s) {
+                //密码长度大于0设置颜色
                 if (etPs.length() > 0) {
                     tvLogin.setBackgroundResource(R.drawable.selector_login_button);
                 }else {
@@ -70,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.tv_login:
                 String log="http://api101.test.mirroreye.cn/index.php/user/login";
                 if (etUser.length() == 11) {
-                    postLogin(URLValues.LOGIN_URL, etUser.toString(), "", etPs.toString());
+                    postLogin(URLValues.LOGIN_URL, etUser.getText().toString(), etPs.getText().toString());
                 } else {
                     Toast.makeText(this, "请输入正确的手机号", Toast.LENGTH_SHORT).show();
                 }
@@ -83,17 +89,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-
-    private void postLogin(String url, String phoneNum, String captcha, String ps) {
+    //登录post请求
+    private void postLogin(String url, String phoneNum, String ps) {
         NetTool netTool = new NetTool();
-        netTool.postLoginOrRegister(url, phoneNum, captcha, ps, new NetListener() {
+        netTool.postLogin(url, phoneNum, ps, new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
-                RegisterBean bean = gson.fromJson(result, RegisterBean.class);
+                LoginBean bean = gson.fromJson(result, LoginBean.class);
                 if (bean.getResult().equals("1")) {
-                    Toast.makeText(LoginActivity.this, bean.getData(), Toast.LENGTH_SHORT).show();
-                    Log.d("LoginActivity","result1--------"+ bean.getData());
+                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+//                    DBUtils dbUtils=new DBUtils();
+//                    dbUtils.insertDB(new DbBean(bean.getData().getToken()));
+
+                    SharedPreferences sp = getSharedPreferences("token", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("token", bean.getData().getToken());
+                    editor.commit();
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, bean.getMsg(), Toast.LENGTH_SHORT).show();
                     Log.d("LoginActivity","result0--------"+ bean.getMsg());

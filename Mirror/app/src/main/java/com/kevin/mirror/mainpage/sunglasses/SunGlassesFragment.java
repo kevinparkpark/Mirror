@@ -42,6 +42,7 @@ public class SunGlassesFragment extends BaseFragment{
     protected void initData() {
         tvTitle.setText("浏览太阳镜");
         tvDetails.setText("显示排序为 最新推荐");
+
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
