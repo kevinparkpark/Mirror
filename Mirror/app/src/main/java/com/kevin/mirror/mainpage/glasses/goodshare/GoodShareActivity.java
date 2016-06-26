@@ -49,8 +49,6 @@ public class GoodShareActivity extends AppCompatActivity {
     private VideoView videoView;
     private ImageView iv1, iv2, iv3, iv4, iv5, ivImg, ivPlay;
     private ImageLoader imageLoader = VolleySingleton.getInstance().getImageLoader();
-    private Handler handler;
-    private Elements elementsResult;
     private int position;
     private ProgressBar progressBar;
     private SunGlassesBean sunGlassesBean;
