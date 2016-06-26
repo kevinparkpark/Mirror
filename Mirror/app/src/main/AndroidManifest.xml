@@ -34,6 +34,7 @@
 
         <activity android:name=".specialtoshare.SpecialActivity" />
         <activity android:name=".mainpage.glasses.goodshare.GoodShareActivity"/>
+        <activity android:name=".mainpage.glasses.goodshare.ShareDetailsActivity" android:process=":picture"/>
     </application>
 
 </manifest>

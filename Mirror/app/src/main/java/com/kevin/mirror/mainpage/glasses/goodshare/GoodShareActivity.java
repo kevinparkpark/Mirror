@@ -1,6 +1,9 @@
 package com.kevin.mirror.mainpage.glasses.goodshare;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -132,14 +135,36 @@ public class GoodShareActivity extends AppCompatActivity {
                     imageLoader.get(imgList.get(imgList.size()-1)
                             , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
                 }
-//
-//                if (wearVideoBeen.get(0).getType().equals("8")){
-//                videoView.setMediaController(new MediaController(GoodShareActivity.this));
-//                    videoView.setVideoURI(Uri.parse(sunGlassesBean.getData()
-//                            .getList().get(position).getWear_video().get(1).getData()));
-//                }
-//                imageLoader.get(sunGlassesBean.getData().getList().get(position).getWear_video().get(0).getData()
-//                        ,ImageLoader.getImageListener(ivImg,R.mipmap.img_gray_color,R.mipmap.img_gray_color));
+                iv1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toDetailsPic(imgList.get(imgList.size()-5),iv1);
+                    }
+                });
+                iv2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toDetailsPic(imgList.get(imgList.size()-4),iv2);
+                    }
+                });
+                iv3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toDetailsPic(imgList.get(imgList.size()-3),iv3);
+                    }
+                });
+                iv4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toDetailsPic(imgList.get(imgList.size()-2),iv4);
+                    }
+                });
+                iv5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        toDetailsPic(imgList.get(imgList.size()-1),iv5);
+                    }
+                });
             }
 
             @Override
@@ -148,6 +173,29 @@ public class GoodShareActivity extends AppCompatActivity {
             }
         });
 
+        ivPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                videoView.start();
+                ivPlay.setVisibility(View.GONE);
+                LinearLayout linearLayout= (LinearLayout) findViewById(R.id.linearlayout_goodeshare);
+                linearLayout.setVisibility(View.GONE);
+            }
+        });
+
+    }
+    private void toDetailsPic(String url,ImageView iv){
+        Intent intent=new Intent(this,ShareDetailsActivity.class);
+        intent.putExtra("url",url);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(
+                    this,iv,"sharedView").toBundle());
+        }else {
+            startActivity(intent);
+        }
+    }
+}
 //        new Thread(new Runnable() {
 //            @Override
 //            public void run() {
@@ -221,15 +269,3 @@ public class GoodShareActivity extends AppCompatActivity {
 //                return false;
 //            }
 //        });
-        ivPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                videoView.start();
-                ivPlay.setVisibility(View.GONE);
-                LinearLayout linearLayout= (LinearLayout) findViewById(R.id.linearlayout_goodeshare);
-                linearLayout.setVisibility(View.GONE);
-            }
-        });
-
-    }
-}

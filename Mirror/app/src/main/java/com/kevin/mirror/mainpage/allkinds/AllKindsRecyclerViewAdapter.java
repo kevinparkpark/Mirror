@@ -29,6 +29,7 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     private Context context;
     private FragmentToDetailsOnClickListener clickListener;
     private ReSize reSize=new ReSize();
+    private NetTool netTool = new NetTool();
 
     public void setAllKinds3Been(List<AllKind3Bean.DataBean.ListBean> allKinds3Been) {
         this.allKinds3Been = allKinds3Been;
@@ -75,7 +76,6 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         int viewType = getItemViewType(position);
-        NetTool netTool = new NetTool();
         switch (viewType) {
             case 1:
                 final MyHolder holder1 = (MyHolder) holder;
