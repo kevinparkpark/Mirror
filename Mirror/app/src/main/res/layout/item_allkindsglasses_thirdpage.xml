@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00000000">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65px"
+        android:layout_marginRight="65px"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/black"
+        android:layout_marginTop="514px">
+
+        <ImageView
+            android:id="@+id/iv_line_allKindsGlasses_thirdPage"
+            android:layout_width="580px"
+            android:layout_height="12px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28px"
+            android:background="@mipmap/underthetitleofline" />
+
+        <TextView
+            android:id="@+id/tv_CT_allKindsGlasses_thirdPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_line_allKindsGlasses_thirdPage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30px"
+            android:text="時髦復古"
+            android:textColor="#fff"
+            android:textSize="60px"
+            android:textStyle="bold" />
+
+
+
+        <ImageView
+            android:layout_width="580px"
+            android:layout_height="12px"
+            android:layout_below="@id/tv_CT_allKindsGlasses_thirdPage"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/underthetitleofline"
+            android:layout_marginTop="26px"
+            android:id="@+id/iv_line2_allKindsGlasses_secPage"/>
+        <TextView
+            android:layout_width="580px"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="猫眼型镜框具有极其浓郁的复古气息，是各路女神十分偏爱的一款。而SPRING STRINGS“少女感”十足的水晶粉与oversize的造型设计又相当的时髦前卫。不愧为古典怀旧与现代流行的完美融合。"
+            android:textSize="26px"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_below="@id/iv_line2_allKindsGlasses_secPage"
+            android:layout_marginTop="30px"
+            android:layout_marginBottom="40px"
+            android:id="@+id/tv_content_allKindsGlasses_thirdPage"/>
+
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

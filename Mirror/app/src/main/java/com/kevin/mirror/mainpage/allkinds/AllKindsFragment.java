@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.MainActivity;
 import com.kevin.mirror.R;
+import com.kevin.mirror.allkindsglasses.AllKindsGlassesActivity;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.mainpage.MenuOnClickListener;
@@ -55,7 +57,7 @@ public class AllKindsFragment extends BaseFragment {
         tvDetails.setText("显示排序为 最新推荐");
 
         NetTool netTool = new NetTool();
-        netTool.postRequest(URLValues.ALLKINDS_URL, "", "2","", new NetListener() {
+        netTool.postRequest(URLValues.ALLKINDS_URL, "", "2", "", new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
@@ -74,8 +76,8 @@ public class AllKindsFragment extends BaseFragment {
         netTool.postRequest(URLValues.ALLKINDS_URL, "", "2", "", new NetListener() {
             @Override
             public void onSuccessed(String result) {
-                Gson gson=new Gson();
-                allKind3Bean=gson.fromJson(result,AllKind3Bean.class);
+                Gson gson = new Gson();
+                allKind3Bean = gson.fromJson(result, AllKind3Bean.class);
                 adapter.setAllKinds3Been(allKind3Bean.getData().getList());
             }
 
@@ -95,19 +97,19 @@ public class AllKindsFragment extends BaseFragment {
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-                if (allKindsBean.getData().getList().get(position).getType().equals("1")){
-//                Intent intent=new Intent();
-//                intent.putExtra("position",position);
-//                startActivity(intent);
-                }else {
-                    Intent intent=new Intent(context, SpecialActivity.class);
-                    intent.putExtra("id",allKind3Bean.getData().getList().get(position).getData_info().getStory_id());
+                if (allKindsBean.getData().getList().get(position).getType().equals("1")) {
+                    Intent intent = new Intent(context, AllKindsGlassesActivity.class);
+                    intent.putExtra("position", position);
+                    intent.putExtra("imgUrl", allKindsBean.getData().getList().get(position).getData_info().getGoods_img());
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(context, SpecialActivity.class);
+                    intent.putExtra("id", allKind3Bean.getData().getList().get(position).getData_info().getStory_id());
                     startActivity(intent);
                 }
             }
         });
     }
-
 
 
 }
