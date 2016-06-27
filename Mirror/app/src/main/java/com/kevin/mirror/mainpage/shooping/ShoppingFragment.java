@@ -57,6 +57,7 @@ public class ShoppingFragment extends BaseFragment{
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
 
+//        dbUtils.deleteAll(DbBean.class);
         List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
 
         if (dbBeen.size()>0) {
