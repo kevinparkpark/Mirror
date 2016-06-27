@@ -2,11 +2,7 @@ package com.kevin.mirror.mainpage.special;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.kevin.mirror.R;
-import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
-import com.kevin.mirror.netutils.ImageNetListener;
+import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;

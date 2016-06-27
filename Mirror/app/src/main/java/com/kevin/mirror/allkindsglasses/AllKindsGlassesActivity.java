@@ -4,36 +4,34 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.DB.DBUtils;
-import com.kevin.mirror.DB.DbBean;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseActivity;
 import com.kevin.mirror.loginandregister.LoginActivity;
-import com.kevin.mirror.mainpage.allkinds.AllKindsBean;
 import com.kevin.mirror.mainpage.glasses.goodshare.GoodShareActivity;
-import com.kevin.mirror.netutils.ImageNetListener;
-import com.kevin.mirror.netutils.NetListener;
+import com.kevin.mirror.netutils.netinterface.ImageNetListener;
+import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
 import com.zhy.autolayout.AutoRelativeLayout;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by dllo on 16/6/22.
@@ -61,8 +59,13 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
     private TextView wearTv;//佩戴图集
     private TextView buyTv;//购买
     private int position;
+    public static AllKindsGlassesActivity ALLKINDS;//销毁时使用
 
-
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ALLKINDS=this;
+    }
 
     @Override
     public int mSetContentView() {
@@ -166,13 +169,13 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                             startActivity(new Intent(AllKindsGlassesActivity.this, LoginActivity.class));
                         }else {
                             DBUtils dbUtils=new DBUtils();
-                            DbBean dbBean=new DbBean(allKindsBean.getData().getGoods_id(),
+                            dbUtils.updateQuery(allKindsBean.getData().getGoods_id(),
                                     allKindsBean.getData().getGoods_img(),
                                     allKindsBean.getData().getGoods_name(),
                                     allKindsBean.getData().getGoods_price(),
                                     allKindsBean.getData().getProduct_area(),
                                     allKindsBean.getData().getBrand());
-                            dbUtils.updateQuery(dbBean);
+                            Toast.makeText(AllKindsGlassesActivity.this, "已加入购物车", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
@@ -300,9 +303,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
             case R.id.iv_goBack_menu_allKindsGlasses:
                 finish();
                 break;
-            case R.id.tv_wearPic_menu_allKindsGlasses:
 
-                break;
         }
 
 

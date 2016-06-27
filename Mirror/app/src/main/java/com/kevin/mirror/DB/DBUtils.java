@@ -38,13 +38,14 @@ public class DBUtils {
         liteOrm.delete(clazz);
     }
     //update
-    public void updateQuery(DbBean dbBean ){
-        QueryBuilder list=new QueryBuilder<>(DbBean.class).whereEquals(dbBean.getGoodsId(),DbBean.GOODID);
+    public void updateQuery(String goodsId,String goodsUrl,String name,
+                          String price,String area,String brand  ){
+        QueryBuilder list=new QueryBuilder<>(DbBean.class).whereEquals(DbBean.GOODID,goodsId);
         if (liteOrm.query(list).size()>0){
-            delete(liteOrm.query(list));
-            insertDB(dbBean);
+            liteOrm.delete(liteOrm.query(list));
+            insertDB(new DbBean(goodsId,goodsUrl,name,price,area,brand));
         }else {
-            insertDB(dbBean);
+            insertDB(new DbBean(goodsId,goodsUrl,name,price,area,brand));
         }
     }
 }

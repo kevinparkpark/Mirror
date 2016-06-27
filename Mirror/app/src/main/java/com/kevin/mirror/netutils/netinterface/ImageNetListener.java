@@ -1,4 +1,4 @@
-package com.kevin.mirror.netutils;
+package com.kevin.mirror.netutils.netinterface;
 
 import android.graphics.Bitmap;
 

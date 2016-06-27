@@ -6,17 +6,19 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.allkindsglasses.AllKindsGlassesActivity;
 import com.kevin.mirror.base.BaseFragment;
-import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
-import com.kevin.mirror.mainpage.MenuOnClickListener;
-import com.kevin.mirror.mainpage.glasses.goodshare.GoodShareActivity;
-import com.kevin.mirror.netutils.NetListener;
+import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.mainpage.maininterface.MenuOnClickListener;
+import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
+import com.kevin.mirror.netutils.NetWorkStatus;
 import com.kevin.mirror.netutils.URLValues;
 
 /**
@@ -75,10 +77,14 @@ public class SunGlassesFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-                Intent intent=new Intent(context, AllKindsGlassesActivity.class);
-                intent.putExtra("goods_id",sunGlassesBean.getData().getList().get(position).getGoods_id());
-                intent.putExtra("imgUrl", sunGlassesBean.getData().getList().get(position).getGoods_img());
-                startActivity(intent);
+                if (!NetWorkStatus.isNetworkAvailable(MyApp.context)){
+                    Toast.makeText(context, "网络不好用", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(context, AllKindsGlassesActivity.class);
+                    intent.putExtra("goods_id", sunGlassesBean.getData().getList().get(position).getGoods_id());
+                    intent.putExtra("imgUrl", sunGlassesBean.getData().getList().get(position).getGoods_img());
+                    startActivity(intent);
+                }
             }
         });
     }

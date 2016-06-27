@@ -3,6 +3,7 @@ package com.kevin.mirror.mainpage.allkinds;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,8 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.kevin.mirror.R;
-import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
-import com.kevin.mirror.netutils.ImageNetListener;
+import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -90,7 +91,7 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                         reSize.bitmapResize(bitmap,holder1.ivImg);
 //                        holder1.ivImg.setImageBitmap(bitmap);
                         holder1.progressBar.setVisibility(View.GONE);
-                        bitmap.recycle();
+//                        bitmap.recycle();
                     }
 
                     @Override
@@ -111,6 +112,7 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 final SecHolder holder2 = (SecHolder) holder;
                 holder2.textView.setText(allKinds2Been.get(position).getData_info().getStory_title());
                 String url= allKinds2Been.get(position).getData_info().getStory_img();
+                Log.d("AllKindsRecyclerViewAda", url);
                 netTool.getImage(url, new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {

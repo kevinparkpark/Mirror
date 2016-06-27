@@ -10,19 +10,15 @@ import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
 import com.kevin.mirror.R;
-import com.kevin.mirror.netutils.ImageNetListener;
+import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
-import com.kevin.mirror.netutils.VolleySingleton;
 
 /**
  * Created by kevin on 16/6/25.
  */
 public class ShareDetailsActivity extends AppCompatActivity {
     private ImageView imageView;
-    private ImageLoader imageLoader = VolleySingleton.getInstance().getImageLoader();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +49,7 @@ public class ShareDetailsActivity extends AppCompatActivity {
         });
 
     }
-
+    //自定义动画没用
     public void animationIn() {
         AnimationSet localAnimationSet = new AnimationSet(true);
         ScaleAnimation localScaleAnimation = new ScaleAnimation(
@@ -62,7 +58,7 @@ public class ShareDetailsActivity extends AppCompatActivity {
         localAnimationSet.addAnimation(localScaleAnimation);
         imageView.startAnimation(localAnimationSet);
     }
-
+    //自定义动画没用
     public void animationOut() {
         AnimationSet localAnimationSet = new AnimationSet(true);
         ScaleAnimation localScaleAnimation = new ScaleAnimation(

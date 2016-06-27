@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.R;
-import com.kevin.mirror.netutils.NetListener;
+import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
 
