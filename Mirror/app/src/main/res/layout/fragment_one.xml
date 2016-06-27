@@ -14,56 +14,56 @@
             android:id="@+id/oneVerticalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/frg_one_vertical_title_left"
-            android:layout_marginTop="@dimen/frg_one_vertical_title_top"
+            android:layout_marginLeft="@dimen/fifty_px"
+            android:layout_marginTop="@dimen/seventy_px"
             android:maxEms="2"
             android:text="@string/test_word"
-            android:textColor="#f04055"
-            android:textSize="@dimen/frg_one_vertical_title_size" />
+            android:textColor="@color/lightRed"
+            android:textSize="@dimen/sixty_six_px" />
 
         <TextView
             android:id="@+id/oneSubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/frg_one_sub_title_mb"
-            android:layout_marginLeft="@dimen/frg_one_sub_title_ml"
+            android:layout_marginBottom="@dimen/seventy_px"
+            android:layout_marginLeft="@dimen/thirty_six_px"
             android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="@dimen/frg_one_sub_title_size" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_six_px" />
 
         <TextView
             android:id="@+id/oneColorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/oneSubTitle"
-            android:layout_marginBottom="@dimen/frg_one_color_title_mb"
-            android:layout_marginLeft="@dimen/frg_one_color_title_ml"
+            android:layout_marginBottom="@dimen/thirty_px"
+            android:layout_marginLeft="@dimen/thirty_six_px"
             android:text="@string/test_word"
-            android:textColor="#f04055"
-            android:textSize="@dimen/frg_one_color_title_size" />
+            android:textColor="@color/lightRed"
+            android:textSize="@dimen/thirty_px" />
 
         <TextView
             android:id="@+id/oneTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/oneColorTitle"
-            android:layout_marginBottom="@dimen/frg_one_title_mb"
-            android:layout_marginLeft="@dimen/frg_one_title_ml"
+            android:layout_marginBottom="@dimen/thirty_px"
+            android:layout_marginLeft="@dimen/thirty_six_px"
             android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="@dimen/frg_one_title_size" />
+            android:textColor="@color/white"
+            android:textSize="@dimen/forty_px" />
 
         <TextView
             android:id="@+id/oneSmallTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/oneTitle"
-            android:layout_marginBottom="@dimen/frg_one_small_title_mb"
-            android:layout_marginLeft="@dimen/frg_one_small_title_ml"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="@dimen/frg_one_small_title_size" />
+            android:layout_marginBottom="@dimen/twentyPx"
+            android:layout_marginLeft="@dimen/thirty_six_px"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -73,47 +73,47 @@
         android:visibility="gone">
 
         <com.zhy.autolayout.AutoRelativeLayout
-            android:layout_width="@dimen/frg_two_auto_rl_width"
+            android:layout_width="@dimen/six_hundred_and_forty_px"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/frg_two_auto_rl_mb"
+            android:layout_marginBottom="@dimen/one_hundred_and_thirty_six_px"
             android:background="@mipmap/bg06">
 
             <TextView
                 android:id="@+id/twoSmallTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/frg_two_small_title_ml"
-                android:layout_marginRight="@dimen/frg_two_small_title_mr"
-                android:layout_marginTop="42px"
-                android:text="@string/test_word"
-                android:textColor="#fff"
-                android:textSize="22px" />
+                android:layout_marginLeft="@dimen/thirty_six_px"
+                android:layout_marginRight="@dimen/thirty_six_px"
+                android:layout_marginTop="@dimen/forty_two_px"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/twenty_two_px" />
 
             <TextView
                 android:id="@+id/twoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/twoSmallTitle"
-                android:layout_marginLeft="36px"
-                android:layout_marginRight="36px"
-                android:layout_marginTop="22px"
+                android:layout_marginLeft="@dimen/thirty_six_px"
+                android:layout_marginRight="@dimen/thirty_six_px"
+                android:layout_marginTop="@dimen/twenty_two_px"
                 android:text="@string/test_word"
-                android:textColor="#fff"
-                android:textSize="34px" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/thirty_four_px" />
 
             <TextView
                 android:id="@+id/twoSubTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/twoTitle"
-                android:layout_marginLeft="36px"
-                android:layout_marginRight="36px"
-                android:layout_marginTop="22px"
-                android:text="@string/test_word"
-                android:textColor="#fff"
-                android:textSize="20px" />
+                android:layout_marginLeft="@dimen/thirty_six_px"
+                android:layout_marginRight="@dimen/thirty_six_px"
+                android:layout_marginTop="@dimen/twenty_two_px"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/twentyPx" />
 
         </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -132,31 +132,31 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="70px"
             android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="26px" />
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_six_px" />
 
         <TextView
             android:id="@+id/threeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/threeSubTitle"
-            android:layout_marginBottom="20px"
-            android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textColor="#f04055"
-            android:textSize="70px" />
+            android:layout_marginBottom="@dimen/twentyPx"
+            android:layout_marginLeft="@dimen/thirty_four_px"
+
+            android:textColor="@color/lightRed"
+            android:textSize="@dimen/seventy_px" />
 
         <TextView
             android:id="@+id/threeSmallTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/threeTitle"
-            android:layout_marginBottom="10px"
+            android:layout_marginBottom="@dimen/ten_px"
             android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="30px" />
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_four_px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoRelativeLayout
@@ -170,37 +170,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="406px"
-            android:text="@string/test_word"
-            android:textColor="#f04055"
-            android:textSize="50px" />
+            android:layout_marginTop="@dimen/four_hundred_and_six_px"
+
+            android:textColor="@color/lightRed"
+            android:textSize="@dimen/fifty_px" />
 
         <View
             android:id="@+id/view1"
-            android:layout_width="600px"
-            android:layout_height="4px"
+            android:layout_width="@dimen/six_hundred_px"
+            android:layout_height="@dimen/four_px"
             android:layout_below="@id/fourTitle"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24px"
+            android:layout_marginTop="@dimen/twenty_four_px"
             android:background="@android:color/white" />
 
         <TextView
             android:id="@+id/fourSubTitle"
-            android:layout_width="600px"
+            android:layout_width="@dimen/six_hundred_px"
             android:layout_height="wrap_content"
             android:layout_below="@id/view1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20px"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="26px" />
+            android:layout_marginTop="@dimen/twentyPx"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_six_px" />
 
         <View
-            android:layout_width="600px"
-            android:layout_height="4px"
+            android:layout_width="@dimen/six_hundred_px"
+            android:layout_height="@dimen/four_px"
             android:layout_below="@id/fourSubTitle"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="@dimen/twentyPx"
             android:background="@android:color/white" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -215,22 +215,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="80px"
-            android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textColor="#f04055"
-            android:textSize="70px" />
+            android:layout_marginBottom="@dimen/eighty_px"
+            android:layout_marginLeft="@dimen/thirty_four_px"
+
+            android:textColor="@color/lightRed"
+            android:textSize="@dimen/seventy_px" />
 
         <TextView
             android:id="@+id/fiveSmallTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/fiveTitle"
-            android:layout_marginBottom="20px"
-            android:layout_marginLeft="34px"
-            android:text="@string/test_word"
-            android:textColor="#fff"
-            android:textSize="30px" />
+            android:layout_marginBottom="@dimen/twentyPx"
+            android:layout_marginLeft="@dimen/thirty_four_px"
+
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_px" />
 
     </com.zhy.autolayout.AutoRelativeLayout>
 

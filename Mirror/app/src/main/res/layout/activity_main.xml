@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="40px"
-            android:layout_marginStart="48px"
+            android:layout_marginBottom="@dimen/forty_px"
+            android:layout_marginStart="@dimen/forty_eight_px"
             android:src="@mipmap/mirror" />
 
         <TextView
@@ -44,8 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="48px"
-            android:text="登録"
+            android:layout_marginEnd="@dimen/forty_eight_px"
+            android:text="@string/toLogin_numerous"
             android:textColor="@android:color/white" />
 
     </RelativeLayout>

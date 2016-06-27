@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="270dp"
+    android:layout_width="@dimen/two_hundred_and_seventy_dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:id="@+id/linearlayout_item_allkinds_1">
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="700px">
+        android:layout_height="@dimen/seven_hundred_px">
 
         <ImageView
             android:background="@mipmap/item_no_imag"
             android:id="@+id/iv_allkinds_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="22px"
+            android:layout_marginLeft="@dimen/twentyTwo_px"
              />
 
         <ProgressBar
@@ -28,8 +28,8 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="238px"
-        android:layout_marginLeft="22px"
+        android:layout_height="@dimen/two_hundred_and_thirty_eight_px"
+        android:layout_marginLeft="@dimen/twentyTwo_px"
         android:background="@android:color/white"
         android:orientation="vertical">
 
@@ -42,10 +42,10 @@
                 android:id="@+id/tv_allkinds_goods_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32px"
-                android:layout_marginTop="50px"
-                android:text="SEE CONCEPT"
-                android:textSize="15dp"
+                android:layout_marginLeft="@dimen/thirty_two_px"
+                android:layout_marginTop="@dimen/fifty_px"
+                android:text="@string/content"
+                android:textSize="@dimen/fifteen_dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -53,8 +53,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="32px"
-                android:layout_marginTop="50px"
+                android:layout_marginRight="@dimen/thirty_two_px"
+                android:layout_marginTop="@dimen/fifty_px"
                 android:text="￥450元" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
@@ -62,16 +62,16 @@
             android:id="@+id/tv_allkinds_product_area"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32px"
-            android:layout_marginTop="16px"
-            android:text="法国巴黎"
-            android:textSize="24px" />
+            android:layout_marginLeft="@dimen/thirty_two_px"
+            android:layout_marginTop="@dimen/sixteen_px"
+            android:text="@string/France"
+            android:textSize="@dimen/twenty_four_px" />
 
         <ImageView
-            android:layout_width="240dp"
+            android:layout_width="@dimen/two_hundred_and_forty_dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32px"
-            android:layout_marginTop="20px"
+            android:layout_marginLeft="@dimen/thirty_two_px"
+            android:layout_marginTop="@dimen/twentyPx"
             android:scaleType="fitXY"
             android:src="@mipmap/black_horizontal_stripe" />
 
@@ -79,9 +79,9 @@
             android:id="@+id/tv_allkinds_brand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32px"
-            android:layout_marginTop="16px"
+            android:layout_marginLeft="@dimen/thirty_two_px"
+            android:layout_marginTop="@dimen/sixteen_px"
             android:text="超美红色原矿阅读镜"
-            android:textSize="30px" />
+            android:textSize="@dimen/thirty_px" />
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>

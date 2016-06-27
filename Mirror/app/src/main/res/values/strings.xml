@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">Mirror</string>
     <string name="test_word">啊啊啊啊啊啊啊啊啊啊啊啊啊</string>
+    <string name="toLogin">帐号登录</string>
+    <string name="mobilePhoneNo">手机号</string>
+    <string name="password">密码</string>
+    <string name="theLogin">登录</string>
+    <string name="createAccount">创建账号</string>
+    <string name="usingSocialNetworkingAccount">使用社交账号</string>
+    <string name="toLogin_numerous">登録</string>
+    <string name="sendVerificationCode">发送验证码</string>
+    <string name="setThePassword">设置密码</string>
+    <string name="browseAllCategories">浏览所有分类</string>
+    <string name="accordingToSortingForTheLatestRecommendations">显示排序为最新推荐</string>
+    <string name="browseTheFlatLight">浏览平光眼镜</string>
+    <string name="browseTheSunglasses">浏览太阳眼镜</string>
+    <string name="specialToShare">专题分享</string>
+    <string name="myShoppingCart">我的购物车</string>
+    <string name="content">SEE CONCEPT</string>
+    <string name="France">法国巴黎</string>
+    <string name="englishName">SPRING STRINGS</string>
+    <string name="girlGlasses">女款｜晶粉貓眼太陽鏡</string>
+    <string name="longContent">来自韩国的眼镜潮牌SPRING STRINGS是现代与复古的完美承载体，以古典与怀旧为基本设计风格，再融合现代的流行元素，深受潮人们的青睐。 猫眼型镜框设计感十足。既要典雅尊贵，又要时尚弄潮儿一般的摩登姿态，低调中展现别样风情，彰显独特魅力。</string>
+    <string name="price">1280</string>
+    <string name="slidingBrowsingDetails">滑动浏览详情</string>
+    <string name="Korea">來自時尚之都韓國</string>
+    <string name="country_korea">韓國</string>
+    <string name="introduce">作为韩国潮牌太阳镜，SPRING STRINGS被许多国际人士所热爱。包括韩国女团T-ARA,SISTAR以及各路来自全国各地的潮人都经常配戴，是时尚达人不可或缺的太阳镜。</string>
+    <string name="styleRestoringAncientWays">時髦復古</string>
+    <string name="content2">猫眼型镜框具有极其浓郁的复古气息，是各路女神十分偏爱的一款。而SPRING STRINGS“少女感”十足的水晶粉与oversize的造型设计又相当的时髦前卫。不愧为古典怀旧与现代流行的完美融合。</string>
 </resources>
