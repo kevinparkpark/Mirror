@@ -44,7 +44,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center" />
 
-                <LinearLayout
+                <RelativeLayout
+                    android:background="@android:color/darker_gray"
                     android:id="@+id/linearlayout_goodeshare"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -55,9 +56,16 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:visibility="visible" />
-                </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/progressbar_goodshare_video"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
 
                 <ImageView
+                    android:visibility="invisible"
                     android:id="@+id/iv_goodshare_vv_play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,10 +128,13 @@
             android:src="@mipmap/goback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <ImageView
+        <TextView
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="    购买"
             android:layout_marginRight="40px"
             android:layout_alignParentRight="true"
-            android:src="@mipmap/buybutton_blue"
+            android:background="@mipmap/buybutton_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </com.zhy.autolayout.AutoRelativeLayout>
