@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class AllKindsGlassesTopAdapter extends BaseAdapter {
     private Context context;
-    private List<AllKindsBean.DataBean.ListBean.DataInfoBean.GoodsDataBean> goodsDataBeen;
+    private List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen;
     private static final int TYPE_ONE = 1;
     private static final int TYPE_TWO = 2;
 
@@ -27,7 +27,7 @@ public class AllKindsGlassesTopAdapter extends BaseAdapter {
         this.context = context;
     }
 
-    public void setGoodsDataBeen(List<AllKindsBean.DataBean.ListBean.DataInfoBean.GoodsDataBean> goodsDataBeen) {
+    public void setGoodsDataBeen(List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen) {
         this.goodsDataBeen = goodsDataBeen;
         notifyDataSetChanged();
     }

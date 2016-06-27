@@ -13,6 +13,7 @@ public final class URLValues {
     public static final String DELADDR_URL = "http://api.mirroreye.cn/index.php/user/del_address";
     public static final String EDITADDR_URL = "http://api.mirroreye.cn/index.php/user/edit_address";
     public static final String GOODSLIST_URL = "http://api.mirroreye.cn/index.php/products/goods_list";
+    public static final String GOODSINFO_URL = "http://api.mirroreye.cn/index.php/products/goods_info";
     public static final String LOGIN_URL = "http://api.mirroreye.cn/index.php/user/login";
     public static final String MENULIST_URL = "http://api.mirroreye.cn/index.php/index/menu_list";
     public static final String MRADDRESS_URL = "http://api.mirroreye.cn/index.php/user/mr_address";

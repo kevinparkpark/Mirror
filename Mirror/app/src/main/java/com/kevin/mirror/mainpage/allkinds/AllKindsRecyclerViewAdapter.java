@@ -25,14 +25,14 @@ import java.util.List;
  */
 public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<AllKindsBean.DataBean.ListBean> allKindsBeen;
-    private List<AllKind3Bean.DataBean.ListBean> allKinds3Been;
+    private List<AllKind2Bean.DataBean.ListBean> allKinds2Been;
     private Context context;
     private FragmentToDetailsOnClickListener clickListener;
     private ReSize reSize=new ReSize();
     private NetTool netTool = new NetTool();
 
-    public void setAllKinds3Been(List<AllKind3Bean.DataBean.ListBean> allKinds3Been) {
-        this.allKinds3Been = allKinds3Been;
+    public void setAllKinds2Been(List<AllKind2Bean.DataBean.ListBean> allKinds2Been) {
+        this.allKinds2Been = allKinds2Been;
         notifyDataSetChanged();
     }
 
@@ -109,8 +109,8 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 break;
             case 2:
                 final SecHolder holder2 = (SecHolder) holder;
-                holder2.textView.setText(allKinds3Been.get(position).getData_info().getStory_title());
-                String url=allKinds3Been.get(position).getData_info().getStory_img();
+                holder2.textView.setText(allKinds2Been.get(position).getData_info().getStory_title());
+                String url= allKinds2Been.get(position).getData_info().getStory_img();
                 netTool.getImage(url, new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {

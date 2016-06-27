@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class AllKindsGlassesDownAdapter extends BaseAdapter {
     private Context context;
-    private List<AllKindsBean.DataBean.ListBean.DataInfoBean.DesignDesBean>designDesBeen;
+    private List<AllKindsGlassesDetailsBeaen.DataBean.DesignDesBean>designDesBeen;
     private NetTool netTool;
     private ReSize reSize=new ReSize();
 
@@ -36,7 +36,7 @@ public class AllKindsGlassesDownAdapter extends BaseAdapter {
 
     }
 
-    public void setDesignDesBeen(List<AllKindsBean.DataBean.ListBean.DataInfoBean.DesignDesBean> designDesBeen) {
+    public void setDesignDesBeen(List<AllKindsGlassesDetailsBeaen.DataBean.DesignDesBean> designDesBeen) {
         this.designDesBeen = designDesBeen;
         notifyDataSetChanged();
     }
@@ -84,7 +84,6 @@ public class AllKindsGlassesDownAdapter extends BaseAdapter {
 
             });
         }
-        Log.d("AllKindsGlassesDownAdap", designDesBeen.get(position).getImg());
 
         return convertView;
     }

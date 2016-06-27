@@ -1,5 +1,6 @@
 package com.kevin.mirror.mainpage.glasses.goodshare;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,8 +9,11 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.kevin.mirror.R;
+import com.kevin.mirror.netutils.ImageNetListener;
+import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.VolleySingleton;
 
 /**
@@ -26,12 +30,25 @@ public class ShareDetailsActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.iv_sharedetails);
 
         String url = getIntent().getStringExtra("url");
-        imageLoader.get(url, ImageLoader.getImageListener(imageView,
-                R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+//        imageLoader.get(url, ImageLoader.getImageListener(imageView,
+//                R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+        NetTool netTool=new NetTool();
+        netTool.getImage(url, new ImageNetListener() {
+            @Override
+            public void onSuccessed(Bitmap bitmap) {
+                imageView.setImageBitmap(bitmap);
+            }
+
+            @Override
+            public void onFailed(VolleyError error) {
+
+            }
+        });
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+               onBackPressed();
             }
         });
 

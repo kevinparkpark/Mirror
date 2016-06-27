@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by kevin on 16/6/24.
  */
-public class AllKind3Bean {
+public class AllKind2Bean {
 
     private String result;
     private String msg;

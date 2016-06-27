@@ -1,6 +1,7 @@
 package com.kevin.mirror.allkindsglasses;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
@@ -17,9 +18,13 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.DB.DBUtils;
+import com.kevin.mirror.DB.DbBean;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseActivity;
+import com.kevin.mirror.loginandregister.LoginActivity;
 import com.kevin.mirror.mainpage.allkinds.AllKindsBean;
+import com.kevin.mirror.mainpage.glasses.goodshare.GoodShareActivity;
 import com.kevin.mirror.netutils.ImageNetListener;
 import com.kevin.mirror.netutils.NetListener;
 import com.kevin.mirror.netutils.NetTool;
@@ -55,6 +60,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
     private ImageView backImg;//返回
     private TextView wearTv;//佩戴图集
     private TextView buyTv;//购买
+    private int position;
 
 
 
@@ -86,9 +92,12 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
     public void initData() {
 
         //设置背景图片(从allKindsFragment)中传过来
-        Intent intent = getIntent();
-        final int position = intent.getIntExtra("position", 0);
-        String imgUrl = intent.getStringExtra("imgUrl");
+//        Intent intent = getIntent();
+//        position = intent.getIntExtra("position", 0);
+        String imgUrl = getIntent().getStringExtra("imgUrl");
+
+        String goodsId=getIntent().getStringExtra("goods_id");
+
         netTool.getImage(imgUrl, new ImageNetListener() {
             @Override
             public void onSuccessed(Bitmap bitmap) {
@@ -115,8 +124,8 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
 
         shareImg.setOnClickListener(this);
         backImg.setOnClickListener(this);
-        wearTv.setOnClickListener(this);
-        buyTv.setOnClickListener(this);
+//        wearTv.setOnClickListener(this);
+//        buyTv.setOnClickListener(this);
 
 
 
@@ -128,25 +137,55 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
         topListView.addFooterView(topListFlowView);
 
 
-        netTool.postRequest(URLValues.ALLKINDS_URL, "", "2", "", new NetListener() {
+        netTool.postGoodList(URLValues.GOODSINFO_URL, "", "2", goodsId, new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
-                AllKindsBean allKindsBean = gson.fromJson(result, AllKindsBean.class);//type1的类
+                final AllKindsGlassesDetailsBeaen allKindsBean = gson.fromJson(result, AllKindsGlassesDetailsBeaen.class);//type1的类
                 //给外层list设置数据
-                List<AllKindsBean.DataBean.ListBean.DataInfoBean.GoodsDataBean> goodsDataBeen =
-                        allKindsBean.getData().getList().get(position).getData_info().getGoods_data();
+                List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen =
+                        allKindsBean.getData().getGoods_data();
                 topAdapter.setGoodsDataBeen(goodsDataBeen);
                 //给里层list设置数据
-                List<AllKindsBean.DataBean.ListBean.DataInfoBean.DesignDesBean> designDesBeen =
-                        allKindsBean.getData().getList().get(position).getData_info().getDesign_des();
+                List<AllKindsGlassesDetailsBeaen.DataBean.DesignDesBean> designDesBeen =
+                        allKindsBean.getData().getDesign_des();
                 downAdapter.setDesignDesBeen(designDesBeen);
                 //给里层inListView加数据
-                goodsNameTv.setText(allKindsBean.getData().getList().get(position).getData_info().getGoods_name());
-                brandTv.setText(allKindsBean.getData().getList().get(position).getData_info().getBrand());
-                infoDesTv.setText(allKindsBean.getData().getList().get(position).getData_info().getInfo_des());
-                goodsPriceTv.setText(allKindsBean.getData().getList().get(position).getData_info().getGoods_price());
-                brandTitleTv.setText(allKindsBean.getData().getList().get(position).getData_info().getBrand());
+                goodsNameTv.setText(allKindsBean.getData().getGoods_name());
+                brandTv.setText(allKindsBean.getData().getBrand());
+                infoDesTv.setText(allKindsBean.getData().getInfo_des());
+                goodsPriceTv.setText(allKindsBean.getData().getGoods_price());
+                brandTitleTv.setText(allKindsBean.getData().getBrand());
+
+                buyTv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
+                        String token = getsp.getString("token","0");
+                        if (token.equals("0")){
+                            startActivity(new Intent(AllKindsGlassesActivity.this, LoginActivity.class));
+                        }else {
+                            DBUtils dbUtils=new DBUtils();
+                            DbBean dbBean=new DbBean(allKindsBean.getData().getGoods_id(),
+                                    allKindsBean.getData().getGoods_img(),
+                                    allKindsBean.getData().getGoods_name(),
+                                    allKindsBean.getData().getGoods_price(),
+                                    allKindsBean.getData().getProduct_area(),
+                                    allKindsBean.getData().getBrand());
+                            dbUtils.updateQuery(dbBean);
+                            finish();
+                        }
+                    }
+                });
+                wearTv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent=new Intent(AllKindsGlassesActivity.this, GoodShareActivity.class);
+                        intent.putExtra("goods_id",allKindsBean.getData().getGoods_id());
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @Override
@@ -263,11 +302,6 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                 break;
             case R.id.tv_wearPic_menu_allKindsGlasses:
 
-                //应该是跳转 暂时没有写
-                break;
-            case R.id.tv_buy_menu_allKindsGlasses:
-
-                //购买之后跳转 看是否登录
                 break;
         }
 

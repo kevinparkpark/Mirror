@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.R;
+import com.kevin.mirror.allkindsglasses.AllKindsGlassesActivity;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.mainpage.glasses.goodshare.GoodShareActivity;
@@ -76,9 +77,11 @@ public class GlassesFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-                Intent intent=new Intent(context, GoodShareActivity.class);
-                intent.putExtra("position",position);
+                Intent intent=new Intent(context, AllKindsGlassesActivity.class);
+                intent.putExtra("goods_id",glassesBean.getData().getList().get(position).getGoods_id());
+                intent.putExtra("imgUrl", glassesBean.getData().getList().get(position).getGoods_img());
                 startActivity(intent);
+
             }
         });
     }

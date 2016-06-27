@@ -1,5 +1,6 @@
 package com.kevin.mirror.mainpage.shooping;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.DB.DbBean;
 import com.kevin.mirror.R;
+import com.kevin.mirror.allkindsglasses.AllKindsGlassesActivity;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.mainpage.MenuOnClickListener;
@@ -57,18 +59,23 @@ public class ShoppingFragment extends BaseFragment{
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
 
-        List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
+        final List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
+
+//        dbUtils.deleteAll(DbBean.class);
 
         if (dbBeen.size()>0) {
             ivEmpty.setVisibility(View.GONE);
             adapter.setListBeen(dbBeen);
             recyclerView.setAdapter(adapter);
-            adapter.setClickListener(new FragmentToDetailsOnClickListener() {
-                @Override
-                public void onFragmentToDetailsClickListener(int position) {
-                    Toast.makeText(context, "没好", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
+        adapter.setClickListener(new FragmentToDetailsOnClickListener() {
+            @Override
+            public void onFragmentToDetailsClickListener(int position) {
+                Intent intent = new Intent(context, AllKindsGlassesActivity.class);
+                intent.putExtra("goods_id",dbBeen.get(position).getGoodsId());
+                intent.putExtra("imgUrl", dbBeen.get(position).getGoodsUrl());
+                startActivity(intent);
+            }
+        });
     }
 }
