@@ -111,7 +111,14 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
         infoDesTv = (TextView) downListHeadView.findViewById(R.id.tv_content_allKindsGlasses_firstPager);
         goodsPriceTv = (TextView) downListHeadView.findViewById(R.id.tv_price_allKindsGlasses_firstPager);
         brandTitleTv = (TextView) downListHeadView.findViewById(R.id.tv_brandTitle_allKindsGlasses);
+
+
         shareImg.setOnClickListener(this);
+        backImg.setOnClickListener(this);
+        wearTv.setOnClickListener(this);
+        buyTv.setOnClickListener(this);
+
+
 
         //给外层ListView加头布局
         View topListHeadView = LayoutInflater.from(this).inflate(R.layout.item_allkindsglasses_top_list_headview, null);
@@ -247,6 +254,10 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.header_allKindsGlasses_share:
+
+                break;
+
             case R.id.iv_goBack_menu_allKindsGlasses:
                 finish();
                 break;
