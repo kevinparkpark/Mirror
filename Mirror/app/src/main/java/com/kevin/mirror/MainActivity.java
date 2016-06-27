@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.base.BaseFragment;
@@ -119,5 +121,24 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         localScaleAnimation.setDuration(250L);
         localAnimationSet.addAnimation(localScaleAnimation);
         ivLogo.startAnimation(localAnimationSet);
+    }
+    //点击2此退出
+    private long exitTime = 0;
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(menuFragment.isVisible()){
+            getSupportFragmentManager().beginTransaction().hide(menuFragment).commit();
+            return false;
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "真的要退出吗^_^?", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

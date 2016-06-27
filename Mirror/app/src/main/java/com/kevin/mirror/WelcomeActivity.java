@@ -53,6 +53,7 @@ public class WelcomeActivity extends AppCompatActivity{
             @Override
             public void onFinish() {
                 startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                finish();
             }
         }.start();
     }

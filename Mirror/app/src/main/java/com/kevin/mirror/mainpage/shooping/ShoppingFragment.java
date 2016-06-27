@@ -3,6 +3,7 @@ package com.kevin.mirror.mainpage.shooping;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class ShoppingFragment extends BaseFragment{
     private TextView tvTitle,tvDetails;
     private RecyclerView recyclerView;
     private ShoppingAdapter adapter;
+    private ImageView ivEmpty;
     private DBUtils dbUtils=new DBUtils();
     @Override
     public int setLayout() {
@@ -36,7 +38,8 @@ public class ShoppingFragment extends BaseFragment{
         relativeLayout= (RelativeLayout) view.findViewById(R.id.relativeLayout_shopping);
         tvTitle= (TextView) view.findViewById(R.id.tv_shopping_title);
         tvDetails= (TextView) view.findViewById(R.id.tv_shopping_details);
-
+        recyclerView= (RecyclerView) view.findViewById(R.id.recyclerview_shopping);
+        ivEmpty= (ImageView) view.findViewById(R.id.iv_shopping_empty);
     }
 
     @Override
@@ -55,13 +58,17 @@ public class ShoppingFragment extends BaseFragment{
         recyclerView.setLayoutManager(manager);
 
         List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
-        adapter.setListBeen(dbBeen);
-        recyclerView.setAdapter(adapter);
-        adapter.setClickListener(new FragmentToDetailsOnClickListener() {
-            @Override
-            public void onFragmentToDetailsClickListener(int position) {
-                Toast.makeText(context, "没好", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        if (dbBeen.size()>0) {
+            ivEmpty.setVisibility(View.GONE);
+            adapter.setListBeen(dbBeen);
+            recyclerView.setAdapter(adapter);
+            adapter.setClickListener(new FragmentToDetailsOnClickListener() {
+                @Override
+                public void onFragmentToDetailsClickListener(int position) {
+                    Toast.makeText(context, "没好", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

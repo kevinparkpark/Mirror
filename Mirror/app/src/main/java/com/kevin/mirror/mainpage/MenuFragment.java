@@ -2,7 +2,6 @@ package com.kevin.mirror.mainpage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.DB.DbBean;
-import com.kevin.mirror.MainActivity;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseFragment;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -65,7 +63,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         tvOUt.setAlpha(0.25f);
         tvBack.setAlpha(0.25f);
 
-                setAmination();
+                setAnimation();
 
     }
     //接收visibility参数
@@ -145,7 +143,7 @@ public class MenuFragment extends BaseFragment implements View.OnClickListener {
         void onMenu2MainClickListener(int position);
     }
     //进入menufragment动画
-    private void setAmination() {
+    private void setAnimation() {
         AnimationSet localAnimationSet = new AnimationSet(true);
         ScaleAnimation localScaleAnimation = new ScaleAnimation(
                 1.10000002384185791016F, 1F, 1.10000002384185791016F, 1F, 1, 0.5F, 1, 0.5F);
