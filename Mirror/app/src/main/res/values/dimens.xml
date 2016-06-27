@@ -79,6 +79,7 @@
     <dimen name="five_hundred_and_fourteen_px">514px</dimen>
     <dimen name="one_thousand_and_five_hundred_dp">1500dp</dimen>
     <dimen name="five_hundred_dp">500dp</dimen>
+    <dimen name="two_hundred_and_forty_dp">240dp</dimen>
 
 
 </resources>
