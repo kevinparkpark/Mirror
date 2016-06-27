@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1">
+    android:background="@color/lightGrey">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="46px"
-        android:layout_marginTop="30px"
-        android:text="创建账号"
-        android:textColor="#333"
-        android:textSize="34px" />
+        android:layout_marginLeft="@dimen/fortySix"
+        android:layout_marginTop="@dimen/thirty_px"
+        android:text="@string/createAccount"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/thirty_four_px" />
 
     <ImageView
         android:id="@+id/close_register_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="46px"
-        android:layout_marginTop="30px"
+        android:layout_marginRight="@dimen/fortySix"
+        android:layout_marginTop="@dimen/thirty_px"
         android:src="@mipmap/close" />
 
     <ImageView
@@ -27,9 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/close_register_activity"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
-        android:layout_marginTop="16px"
+        android:layout_marginLeft="@dimen/thirty_px"
+        android:layout_marginRight="@dimen/thirty_px"
+        android:layout_marginTop="@dimen/sixteen_px"
         android:background="@mipmap/userblackline" />
 
     <TextView
@@ -37,20 +38,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/user_black_line_register_activity"
-        android:layout_marginLeft="30px"
-        android:layout_marginTop="40px"
-        android:text="手机号"
-        android:textColor="#333"
-        android:textSize="24px" />
+        android:layout_marginLeft="@dimen/thirty_px"
+        android:layout_marginTop="@dimen/forty_px"
+        android:text="@string/mobilePhoneNo"
+        android:textColor="@color/dark"
+        android:textSize="@dimen/twenty_four_px" />
 
     <EditText
         android:id="@+id/et_user_number_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_phone_number_register"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
-        android:layout_marginTop="20px"
+        android:layout_marginLeft="@dimen/thirty_px"
+        android:layout_marginRight="@dimen/thirty_px"
+        android:layout_marginTop="@dimen/twenty_px"
         android:inputType="phone"
         android:background="@mipmap/hint_phonenum" />
 
@@ -84,13 +85,13 @@
 
         <TextView
             android:id="@+id/tv_send_verification_code_register"
-            android:layout_width="210px"
+            android:layout_width="@dimen/two_hundred_and_ten_px"
             android:layout_height="match_parent"
             android:background="@drawable/selector_captcha_button"
             android:gravity="center"
-            android:text="发送验证码"
-            android:textColor="#fff"
-            android:textSize="26px" />
+            android:text="@string/sendVerificationCode"
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_six_px" />
     </com.zhy.autolayout.AutoLinearLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
@@ -105,10 +106,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearlayout_verification_code_register"
-            android:layout_marginTop="30px"
-            android:text="设置密码"
-            android:textColor="#333"
-            android:textSize="24px"
+            android:layout_marginTop="@dimen/thirty_px"
+            android:text="@string/setThePassword"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/twenty_four_px"
 
             />
 
@@ -116,7 +117,7 @@
             android:id="@+id/et_password_first_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="@dimen/twenty_px"
             android:layout_weight="1"
             android:background="@mipmap/hint_phonenum" />
 
@@ -125,10 +126,10 @@
             android:id="@+id/tv_create_account_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:text="创建账号"
-            android:textColor="#fff"
-            android:textSize="34px"
+            android:layout_marginTop="@dimen/fifty_px"
+            android:text="@string/createAccount"
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_four_px"
             android:gravity="center"/>
 
     </com.zhy.autolayout.AutoLinearLayout>

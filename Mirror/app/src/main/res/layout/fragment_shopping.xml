@@ -16,10 +16,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/imageView"
-            android:layout_marginTop="10dp"
-            android:text="浏览所有分类"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:text="@string/browseAllCategories"
             android:textColor="@android:color/white"
-            android:textSize="17dp" />
+            android:textSize="@dimen/seventeen_dp" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_shopping_title"
-            android:layout_marginStart="22px"
+            android:layout_marginStart="@dimen/twenty_two_px"
             android:src="@mipmap/trabecula" />
 
         <TextView
@@ -36,16 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/imageView"
             android:layout_below="@+id/imageView"
-            android:layout_marginBottom="94px"
-            android:layout_marginTop="26px"
-            android:text="显示排序为最新推荐"
+            android:layout_marginBottom="@dimen/ninety_four_px"
+            android:layout_marginTop="@dimen/twenty_six_px"
+            android:text="@string/accordingToSortingForTheLatestRecommendations"
             android:textColor="@android:color/white" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tv_shopping_title"
-            android:layout_marginStart="9px"
+            android:layout_marginStart="@dimen/nine_px"
             android:layout_toEndOf="@+id/tv_shopping_title"
             android:src="@mipmap/down" />
     </RelativeLayout>

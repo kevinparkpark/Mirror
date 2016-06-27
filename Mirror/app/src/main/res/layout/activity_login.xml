@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1">
+    android:background="@color/lightGrey">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="46px"
-        android:layout_marginTop="30px"
-        android:text="帐号登录"
+        android:layout_marginLeft="@dimen/forty_six_px"
+        android:layout_marginTop="@dimen/thirty_px"
+        android:text="@string/toLogin"
         android:textColor="@android:color/black"
-        android:textSize="34px" />
+        android:textSize="@dimen/thirty_four_px" />
 
     <ImageView
         android:id="@+id/close_login_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="46px"
-        android:layout_marginTop="30px"
+        android:layout_marginRight="@dimen/forty_six_px"
+        android:layout_marginTop="@dimen/thirty_px"
         android:src="@mipmap/close" />
 
     <ImageView
@@ -27,41 +28,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/close_login_activity"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
-        android:layout_marginTop="16px"
+        android:layout_marginLeft="@dimen/thirty_px"
+        android:layout_marginRight="@dimen/thirty_px"
+        android:layout_marginTop="@dimen/sixteen_px"
         android:background="@mipmap/userblackline" />
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/user_black_line_login_activity"
-        android:layout_marginLeft="30px"
-        android:layout_marginRight="30px"
+        android:layout_marginLeft="@dimen/thirty_px"
+        android:layout_marginRight="@dimen/thirty_px"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40px"
-            android:text="手机号"
-            android:textColor="#333"
-            android:textSize="24px" />
+            android:layout_marginTop="@dimen/forty_px"
+            android:text="@string/mobilePhoneNo"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/twenty_four_px" />
 
         <EditText
             android:id="@+id/et_user_number_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="@dimen/twenty_px"
             android:background="@mipmap/hint_phonenum" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
-            android:text="密码"
-            android:textColor="#333"
-            android:textSize="24px"
+            android:layout_marginTop="@dimen/thirty_px"
+            android:text="@string/password"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/twenty_four_px"
             />
 
         <EditText
@@ -69,7 +70,7 @@
             android:id="@+id/et_user_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="@dimen/twenty_px"
             android:background="@mipmap/hint_phonenum" />
 
         <TextView
@@ -77,37 +78,37 @@
             android:id="@+id/tv_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40px"
+            android:layout_marginTop="@dimen/forty_px"
             android:gravity="center"
-            android:text="登录"
-            android:textColor="#fff"
-            android:textSize="34px" />
+            android:text="@string/theLogin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_four_px" />
 
         <TextView
             android:background="@drawable/selector_create_account_login_button"
             android:id="@+id/tv_create_account_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
+            android:layout_marginTop="@dimen/thirty_px"
             android:gravity="center"
-            android:text="创建账号"
-            android:textColor="#fff"
-            android:textSize="34px" />
+            android:text="@string/createAccount"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/thirty_four_px" />
 
         <TextView
-            android:layout_marginTop="180px"
+            android:layout_marginTop="@dimen/one_hundred_and_eighty_px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="使用社交账号"
+            android:text="@string/usingSocialNetworkingAccount"
             android:gravity="center"
-            android:textColor="#333"
-            android:textSize="34px"
+            android:textColor="@color/dark"
+            android:textSize="@dimen/thirty_four_px"
             />
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="60px"
+            android:layout_marginTop="@dimen/sixty_px"
             android:gravity="center">
 
             <ImageView
@@ -116,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/weichat_icon"/>
             <TextView
-                android:layout_width="120px"
+                android:layout_width="@dimen/one_hundred_and_twenty_px"
                 android:layout_height="wrap_content" />
             <ImageView
                 android:id="@+id/sina_login"

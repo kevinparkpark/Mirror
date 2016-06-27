@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="@mipmap/glass3"
         android:id="@+id/iv_allKindsGlasses_fifthPage"
-        android:layout_marginTop="134px"/>
+        android:layout_marginTop="@dimen/one_hundred_and_thirty_four_px"/>
 
 
 

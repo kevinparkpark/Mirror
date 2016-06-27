@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/frg_close_iv_right"
-        android:layout_marginTop="@dimen/frg_close_iv_top"
+        android:layout_marginRight="@dimen/fifty_px"
+        android:layout_marginTop="@dimen/fifty_px"
         android:background="@mipmap/close1" />
 
     <ImageView
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/frg_share_mb"
-        android:layout_marginRight="@dimen/frg_share_mr"
+        android:layout_marginBottom="@dimen/forty_px"
+        android:layout_marginRight="@dimen/forty_px"
         android:background="@mipmap/share" />
 </com.zhy.autolayout.AutoRelativeLayout>
