@@ -22,6 +22,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(mSetContentView());
+        initView();
+        initData();
     }
 
     //通过R文件寻找视图
@@ -31,17 +33,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     //初始化视图
     public abstract void initView();
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        initView();
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        initView();
+//    }
     //初始化 数据
     public abstract void initData();
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        initData();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        initData();
+//    }
 }
