@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.DB.DBUtils;
+import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseActivity;
 import com.kevin.mirror.loginandregister.LoginActivity;
@@ -29,6 +30,7 @@ import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.utils.SharedPreferencesUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.List;
@@ -165,6 +167,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                     public void onClick(View v) {
                         SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
                         String token = getsp.getString("token","0");
+//                        String token= (String) SharedPreferencesUtil.getData(MyApp.context,"token","0");
                         if (token.equals("0")){
                             startActivity(new Intent(AllKindsGlassesActivity.this, LoginActivity.class));
                         }else {
