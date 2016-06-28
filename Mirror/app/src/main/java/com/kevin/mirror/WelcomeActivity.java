@@ -1,5 +1,6 @@
 package com.kevin.mirror;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;

@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.ImageLoader;
 import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.loginandregister.LoginActivity;
@@ -24,6 +26,7 @@ import com.kevin.mirror.mainpage.MainAdapter;
 import com.kevin.mirror.mainpage.shooping.ShoppingFragment;
 import com.kevin.mirror.mainpage.special.SpecialFragment;
 import com.kevin.mirror.mainpage.sunglasses.SunGlassesFragment;
+import com.squareup.okhttp.internal.DiskLruCache;
 
 import java.util.ArrayList;
 
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
     private TextView tvLogin;
     private DBUtils dbUtils=new DBUtils();
     private String token;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
