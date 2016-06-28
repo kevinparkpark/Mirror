@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.DB.DbBean;
+import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.allkindsglasses.AllKindsGlassesActivity;
 import com.kevin.mirror.base.BaseFragment;
-import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
-import com.kevin.mirror.mainpage.MenuOnClickListener;
-import com.kevin.mirror.mainpage.sunglasses.SunGlassesAdapter;
+import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.mainpage.maininterface.MenuOnClickListener;
+import com.kevin.mirror.netutils.NetWorkStatus;
 
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class ShoppingFragment extends BaseFragment{
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
 
+        //查询数据库
         final List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
 
 //        dbUtils.deleteAll(DbBean.class);
@@ -71,10 +73,14 @@ public class ShoppingFragment extends BaseFragment{
         adapter.setClickListener(new FragmentToDetailsOnClickListener() {
             @Override
             public void onFragmentToDetailsClickListener(int position) {
-                Intent intent = new Intent(context, AllKindsGlassesActivity.class);
-                intent.putExtra("goods_id",dbBeen.get(position).getGoodsId());
-                intent.putExtra("imgUrl", dbBeen.get(position).getGoodsUrl());
-                startActivity(intent);
+                if (!NetWorkStatus.isNetworkAvailable(MyApp.context)){
+                    Toast.makeText(context, "网络不好用", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(context, AllKindsGlassesActivity.class);
+                    intent.putExtra("goods_id", dbBeen.get(position).getGoodsId());
+                    intent.putExtra("imgUrl", dbBeen.get(position).getGoodsUrl());
+                    startActivity(intent);
+                }
             }
         });
     }

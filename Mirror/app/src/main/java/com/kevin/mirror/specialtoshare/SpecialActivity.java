@@ -8,14 +8,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Scroller;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.google.gson.Gson;
 import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
-import com.kevin.mirror.netutils.NetListener;
+import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
 import com.kevin.mirror.netutils.VolleySingleton;

@@ -68,7 +68,7 @@
             android:textSize="@dimen/twenty_four_px" />
 
         <ImageView
-            android:layout_width="@dimen/two_hundred_and_forty_dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/thirty_two_px"
             android:layout_marginTop="@dimen/twentyPx"

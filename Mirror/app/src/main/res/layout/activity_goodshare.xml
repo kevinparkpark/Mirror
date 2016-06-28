@@ -124,12 +124,14 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/iv_goodshare_iv_back"
             android:layout_marginLeft="@dimen/forty_px"
             android:src="@mipmap/goback"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/forty_px"/>
         <TextView
+            android:id="@+id/tv_goodshare_buy"
             android:textSize="20sp"
             android:gravity="center"
             android:text="    购买"

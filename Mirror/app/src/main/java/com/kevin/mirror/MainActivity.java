@@ -17,7 +17,7 @@ import com.kevin.mirror.DB.DBUtils;
 import com.kevin.mirror.base.BaseFragment;
 import com.kevin.mirror.loginandregister.LoginActivity;
 import com.kevin.mirror.mainpage.MenuFragment;
-import com.kevin.mirror.mainpage.MenuOnClickListener;
+import com.kevin.mirror.mainpage.maininterface.MenuOnClickListener;
 import com.kevin.mirror.mainpage.allkinds.AllKindsFragment;
 import com.kevin.mirror.mainpage.glasses.GlassesFragment;
 import com.kevin.mirror.mainpage.MainAdapter;
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
     private long exitTime = 0;
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(menuFragment.isVisible()){
+        if(menuFragment!=null&&menuFragment.isVisible()){
             getSupportFragmentManager().beginTransaction().hide(menuFragment).commit();
             return false;
         }
