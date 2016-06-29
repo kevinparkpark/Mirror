@@ -1,51 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="#00000000"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/tv_allKindsGlasses_secPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="54px"
-        android:layout_marginTop="102px"
-        android:text="女款｜晶粉貓眼太陽鏡"
-        android:textColor="#333"
-        android:textSize="32px"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="12px"
-        android:layout_marginLeft="54px"
-        android:layout_marginRight="54px"
-        android:layout_marginTop="24px"
-        android:background="@mipmap/black_rail" />
-
-    <ImageView
-        android:id="@+id/iv_allKIndsGlasses_secPage"
-        android:layout_width="wrap_content"
-        android:layout_height="500px"
-        android:background="@mipmap/glass" />
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="65px"
-        android:layout_marginRight="65px"
         android:layout_gravity="center_horizontal"
-        android:background="@android:color/black">
+        android:layout_marginLeft="@dimen/sixty_five_px"
+        android:layout_marginRight="@dimen/sixty_five_px"
+        android:background="@android:color/black"
+        android:layout_marginTop="@dimen/three_hundred_dp">
 
         <ImageView
             android:id="@+id/iv_line_allKindsGlasses_secPage"
-            android:layout_width="580px"
-            android:layout_height="8px"
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="@dimen/twelve_px"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="28px"
-            android:background="@mipmap/underthetitleofline" />
+            android:layout_marginTop="@dimen/twenty_eight_px"
+            android:background="@mipmap/underthetitleofline"
+            />
 
         <TextView
             android:id="@+id/tv_CT_allKindsGlasses_secPage"
@@ -53,58 +31,61 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_line_allKindsGlasses_secPage"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="34px"
-            android:text="來自時尚之都韓國"
-            android:textColor="#fff"
-            android:textSize="32px"
+            android:layout_marginTop="@dimen/thirty_four_px"
+            android:text="@string/Korea"
+            android:textColor="@color/white"
+            android:textSize="@dimen/thirty_two_px"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tv_english_allKindsGlasses_secPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/tv_CT_allKindsGlasses_secPage"
             android:layout_below="@id/tv_CT_allKindsGlasses_secPage"
+            android:layout_marginTop="@dimen/ten_px"
             android:text="The frame comes from Korea"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textSize="24px"
-            android:layout_marginTop="10px"
-            android:id="@+id/tv_english_allKindsGlasses_secPage"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_four_px"
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/tv_country_allKindsGlasses_secPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_line_allKindsGlasses_secPage"
-            android:layout_toRightOf="@id/tv_CT_allKindsGlasses_secPage"
-            android:text="韓國"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textSize="64px"
-            android:layout_marginLeft="26px"
             android:layout_alignTop="@id/tv_CT_allKindsGlasses_secPage"
-            android:id="@+id/tv_country_allKindsGlasses_secPage"/>
+            android:layout_below="@id/iv_line_allKindsGlasses_secPage"
+            android:layout_marginLeft="@dimen/twenty_six_px"
+            android:layout_toRightOf="@id/tv_CT_allKindsGlasses_secPage"
+            android:text="@string/country_korea"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sixty_four_px"
+            android:textStyle="bold" />
+
         <ImageView
-            android:layout_width="580px"
-            android:layout_height="8px"
+            android:id="@+id/iv_line2_allKindsGlasses_secPage"
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="@dimen/twelve_px"
             android:layout_below="@id/tv_english_allKindsGlasses_secPage"
             android:layout_centerHorizontal="true"
-            android:background="@mipmap/underthetitleofline"
-            android:layout_marginTop="26px"
-            android:id="@+id/iv_line2_allKindsGlasses_secPage"/>
-        <TextView
-            android:layout_width="580px"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="作为韩国潮牌太阳镜，SPRING STRINGS被许多国际人士所热爱。包括韩国女团T-ARA,SISTAR以及各路来自全国各地的潮人都经常配戴，是时尚达人不可或缺的太阳镜。"
-            android:textSize="26px"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:layout_below="@id/iv_line2_allKindsGlasses_secPage"
-            android:layout_marginTop="26px"
-            android:layout_marginBottom="40px"/>
+            android:layout_marginTop="@dimen/twenty_six_px"
+            android:background="@mipmap/underthetitleofline" />
 
+        <TextView
+            android:id="@+id/tv_content_allKindsGlasses_secPage"
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_line2_allKindsGlasses_secPage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/forty_px"
+            android:layout_marginTop="@dimen/twenty_six_px"
+            android:text="@string/introduce"
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_six_px"
+            android:textStyle="bold" />
 
 
     </com.zhy.autolayout.AutoRelativeLayout>
 
 
-</com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="270dp"
+    android:layout_width="@dimen/two_hundred_and_seventy_dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/linearlayout_item_allkinds_2"
@@ -8,13 +8,13 @@
 
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="810px">
+        android:layout_height="@dimen/eight_hundred_and_ten_px">
 
         <ImageView
             android:id="@+id/iv_allkinds_img2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="22px"
+            android:layout_marginLeft="@dimen/twentyTwo_px"
             android:background="@android:color/darker_gray"
             />
 
@@ -29,26 +29,26 @@
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="128px"
-        android:layout_marginLeft="22px"
+        android:layout_height="@dimen/one_hundred_and_twenty_eight_px"
+        android:layout_marginLeft="@dimen/twentyTwo_px"
         android:background="@android:color/white"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="240dp"
+            android:layout_width="@dimen/twoHundredAndForty_dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22px"
-            android:layout_marginTop="34px"
+            android:layout_marginLeft="@dimen/twentyTwo_px"
+            android:layout_marginTop="@dimen/thirty_four_px"
             android:scaleType="fitXY"
             android:src="@mipmap/black_horizontal_stripe" />
 
         <TextView
             android:id="@+id/tv_allkinds_brand2"
             android:layout_width="wrap_content"
-            android:layout_height="40px"
-            android:layout_marginLeft="32px"
-            android:layout_marginTop="16px"
-            android:text="超美红色原矿阅读镜"
-            android:textSize="30px" />
+            android:layout_height="@dimen/forty_px"
+            android:layout_marginLeft="@dimen/thirty_two_px"
+            android:layout_marginTop="@dimen/sixteen_px"
+
+            android:textSize="@dimen/thirty_px" />
     </com.zhy.autolayout.AutoLinearLayout>
 </com.zhy.autolayout.AutoLinearLayout>

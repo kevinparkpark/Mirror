@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.R;
-import com.kevin.mirror.netutils.NetListener;
+import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
 
@@ -72,10 +72,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
         }
     }
-
+    //发送短信验证码
     private void postSendCode(String url, String phoneNum, String captcha, String ps) {
         NetTool netTool = new NetTool();
-        netTool.postLoginOrRegister(url, phoneNum, captcha, ps, new NetListener() {
+        netTool.postRegister(url, phoneNum, captcha, ps, new NetListener() {
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         });
     }
-
+    //设置验证码按钮时间
     public void timerCount() {
         CountDownTimer timer = new CountDownTimer(60000, 1000) {
             @Override

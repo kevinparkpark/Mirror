@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00000000">
+
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sixty_five_px"
+        android:layout_marginRight="@dimen/sixty_five_px"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/black"
+        android:layout_marginTop="800px"
+        >
+
+        <ImageView
+            android:id="@+id/iv_line_allKindsGlasses_thirdPage"
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="@dimen/twelve_px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/twenty_eight_px"
+            android:background="@mipmap/underthetitleofline" />
+
+        <TextView
+            android:id="@+id/tv_CT_allKindsGlasses_thirdPage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_line_allKindsGlasses_thirdPage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/thirty_px"
+            android:text="@string/styleRestoringAncientWays"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sixty_px"
+            android:textStyle="bold" />
+
+
+
+        <ImageView
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="@dimen/twelve_px"
+            android:layout_below="@id/tv_CT_allKindsGlasses_thirdPage"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/underthetitleofline"
+            android:layout_marginTop="@dimen/twenty_six_px"
+            android:id="@+id/iv_line2_allKindsGlasses_secPage"/>
+        <TextView
+            android:layout_width="@dimen/five_hundred_and_eighty_px"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/content2"
+            android:textSize="@dimen/twenty_six_px"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_below="@id/iv_line2_allKindsGlasses_secPage"
+            android:layout_marginTop="@dimen/thirty_px"
+            android:layout_marginBottom="@dimen/forty_px"
+            android:id="@+id/tv_content_allKindsGlasses_thirdPage"/>
+
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

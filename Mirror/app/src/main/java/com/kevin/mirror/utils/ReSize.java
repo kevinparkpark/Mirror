@@ -32,7 +32,7 @@ public class ReSize {
     public void bitmapResize(Bitmap bitmap, ImageView iv) {
         if (bitmap != null) {
             Matrix matrix = new Matrix();
-            matrix.postScale(0.5f,0.5f);
+            matrix.postScale(0.35f,0.35f);
             bitmap = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
 
             int d = bitmap.getHeight() - (bitmap.getWidth() * iv.getHeight() / iv.getWidth());
@@ -40,8 +40,6 @@ public class ReSize {
             Canvas canvas = new Canvas(out);
             canvas.drawBitmap(bitmap, 0, 0, new Paint());
             bitmap.recycle();
-
-
 
             iv.setImageBitmap(out);
 

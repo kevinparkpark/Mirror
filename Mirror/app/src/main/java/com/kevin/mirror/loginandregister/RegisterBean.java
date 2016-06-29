@@ -15,6 +15,7 @@ public class RegisterBean {
     private String msg;
     private String data;
 
+
     public String getResult() {
         return result;
     }

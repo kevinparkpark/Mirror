@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginLeft="@dimen/ten_dp"
+    android:layout_marginRight="@dimen/ten_dp"
     android:orientation="vertical">
 
     <ScrollView
@@ -19,21 +19,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/ten_dp"
                 android:text="商品细节展示" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20px"
+                android:layout_marginTop="@dimen/twenty_px"
                 android:scaleType="fitXY"
                 android:src="@mipmap/userblackline" />
 
             <com.zhy.autolayout.AutoRelativeLayout
-                android:layout_width="660px"
-                android:layout_height="330px"
+                android:layout_width="@dimen/six_hundred_and_sixty_px"
+                android:layout_height="@dimen/three_hundred_and_thirty_px"
                 android:layout_gravity="center"
-                android:layout_marginTop="20px">
+                android:layout_marginTop="@dimen/twenty_px">
 
                 <VideoView
                     android:id="@+id/vv_goodshare_vv"
@@ -44,7 +44,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_gravity="center" />
 
-                <LinearLayout
+                <RelativeLayout
+                    android:background="@android:color/darker_gray"
                     android:id="@+id/linearlayout_goodeshare"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -55,9 +56,16 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:visibility="visible" />
-                </LinearLayout>
+                    <ProgressBar
+                        android:id="@+id/progressbar_goodshare_video"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
 
                 <ImageView
+                    android:visibility="invisible"
                     android:id="@+id/iv_goodshare_vv_play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,35 +82,64 @@
                 android:layout_height="wrap_content" />
 
             <ImageView
+                android:transitionName="sharedView"
                 android:id="@+id/iv_goodshare_img1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10px" />
 
             <ImageView
+                android:transitionName="sharedView"
                 android:id="@+id/iv_goodshare_img2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10px" />
+                android:layout_marginTop="@dimen/ten_px" />
 
             <ImageView
+                android:transitionName="sharedView"
                 android:id="@+id/iv_goodshare_img3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10px" />
+                android:layout_marginTop="@dimen/ten_px" />
 
             <ImageView
+                android:transitionName="sharedView"
                 android:id="@+id/iv_goodshare_img4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10px" />
+                android:layout_marginTop="@dimen/ten_px" />
 
             <ImageView
+                android:transitionName="sharedView"
                 android:id="@+id/iv_goodshare_img5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10px" />
+                android:layout_marginTop="@dimen/ten_px" />
         </com.zhy.autolayout.AutoLinearLayout>
     </ScrollView>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/forty_px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</com.zhy.autolayout.AutoLinearLayout>
+        <ImageView
+            android:id="@+id/iv_goodshare_iv_back"
+            android:layout_marginLeft="@dimen/forty_px"
+            android:src="@mipmap/goback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/forty_px"/>
+        <TextView
+            android:id="@+id/tv_goodshare_buy"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="    购买"
+            android:layout_marginRight="40px"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/buybutton_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoRelativeLayout>

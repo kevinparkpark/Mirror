@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.kevin.mirror.R;
-import com.kevin.mirror.mainpage.FragmentToDetailsOnClickListener;
-import com.kevin.mirror.netutils.ImageNetListener;
+import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
+import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.utils.ReSize;
 import com.zhy.autolayout.AutoLinearLayout;
