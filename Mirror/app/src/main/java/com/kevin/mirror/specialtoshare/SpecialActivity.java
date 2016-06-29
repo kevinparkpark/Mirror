@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Scroller;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
@@ -70,6 +69,7 @@ public class SpecialActivity extends FragmentActivity implements View.OnClickLis
         imageUrl = new ArrayList<>();
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
+        progressBar.setVisibility(View.VISIBLE);
         netTool.storyPostRequest(URLValues.STORYINFO_URL, "2", id, new NetListener() {
             @Override
             public void onSuccessed(String result) {
