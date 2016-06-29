@@ -1,6 +1,7 @@
 package com.kevin.mirror.purchase;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -39,6 +40,8 @@ public class OrderActivity extends Activity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.add_address:
+                Intent intent = new Intent(this, AllAddressesActivity.class);
+                startActivity(intent);
                 break;
             case R.id.determine:
                 break;
