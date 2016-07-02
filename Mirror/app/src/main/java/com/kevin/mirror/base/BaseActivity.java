@@ -30,20 +30,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected <T extends View>T findView(int id){
         return (T) findViewById(id);
     }
+
     //初始化视图
     public abstract void initView();
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        initView();
-//    }
     //初始化 数据
     public abstract void initData();
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        initData();
-//    }
 }

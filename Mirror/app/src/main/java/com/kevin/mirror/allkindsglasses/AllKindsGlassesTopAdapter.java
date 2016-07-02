@@ -1,7 +1,6 @@
 package com.kevin.mirror.allkindsglasses;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.kevin.mirror.R;
-import com.kevin.mirror.mainpage.allkinds.AllKindsBean;
 
 import java.util.List;
 
@@ -18,7 +16,7 @@ import java.util.List;
  */
 public class AllKindsGlassesTopAdapter extends BaseAdapter {
     private Context context;
-    private List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen;
+    private List<AllKindsGlassesDetailsBean.DataBean.GoodsDataBean> goodsDataBeen;
     private static final int TYPE_ONE = 1;
     private static final int TYPE_TWO = 2;
 
@@ -27,7 +25,7 @@ public class AllKindsGlassesTopAdapter extends BaseAdapter {
         this.context = context;
     }
 
-    public void setGoodsDataBeen(List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen) {
+    public void setGoodsDataBeen(List<AllKindsGlassesDetailsBean.DataBean.GoodsDataBean> goodsDataBeen) {
         this.goodsDataBeen = goodsDataBeen;
         notifyDataSetChanged();
     }

@@ -107,6 +107,8 @@ public class NetTool {
 
     }
 
+    //接到从fragment传来的信息
+
     public void postGoodList(String url, final String token, final String devicetype, final String goodsId, final NetListener netListener) {
         if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
             String response = new String(requestQueue.getCache().get(url).data);

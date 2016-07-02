@@ -148,7 +148,8 @@
         android:id="@+id/tv_brandTitle_allKindsGlasses"
         android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/thirty_two_px"/>
+        android:textSize="@dimen/thirty_two_px"
+        />
 
     <ImageView
         android:layout_width="match_parent"

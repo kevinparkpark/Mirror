@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.AbsListView;
@@ -22,7 +21,6 @@ import android.widget.Toast;
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.kevin.mirror.DB.DBUtils;
-import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.base.BaseActivity;
 import com.kevin.mirror.loginandregister.LoginActivity;
@@ -31,7 +29,6 @@ import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
-import com.kevin.mirror.utils.SharedPreferencesUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import java.util.List;
@@ -43,7 +40,7 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 /**
  * Created by dllo on 16/6/22.
  */
-public class AllKindsGlassesActivity extends BaseActivity implements View.OnClickListener {
+public class   AllKindsGlassesActivity extends BaseActivity implements View.OnClickListener {
     private NetTool netTool;
     private AutoRelativeLayout layout;
     private ListView downListView, topListView;
@@ -153,13 +150,13 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
             @Override
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
-                final AllKindsGlassesDetailsBeaen allKindsBean = gson.fromJson(result, AllKindsGlassesDetailsBeaen.class);//type1的类
+                final AllKindsGlassesDetailsBean allKindsBean = gson.fromJson(result, AllKindsGlassesDetailsBean.class);//type1的类
                 //给外层list设置数据
-                List<AllKindsGlassesDetailsBeaen.DataBean.GoodsDataBean> goodsDataBeen =
+                List<AllKindsGlassesDetailsBean.DataBean.GoodsDataBean> goodsDataBeen =
                         allKindsBean.getData().getGoods_data();
                 topAdapter.setGoodsDataBeen(goodsDataBeen);
                 //给里层list设置数据
-                List<AllKindsGlassesDetailsBeaen.DataBean.DesignDesBean> designDesBeen =
+                List<AllKindsGlassesDetailsBean.DataBean.DesignDesBean> designDesBeen =
                         allKindsBean.getData().getDesign_des();
                 downAdapter.setDesignDesBeen(designDesBeen);
                 //给里层inListView加数据
@@ -278,6 +275,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                 Animation.RELATIVE_TO_PARENT, 0);
         translateAnimation.setDuration(300);
         translateAnimation.setRepeatCount(0);
+        //包裹的那三个按钮的那个布局
         allKindsGlassesRelayoutLayout.startAnimation(translateAnimation);
         //给动画设置监听,GONE掉
         translateAnimation.setAnimationListener(new Animation.AnimationListener() {
