@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kevin.mirror">
 
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -24,6 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".WelcomeActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,15 +50,18 @@
         </meta-data>
 
         <activity android:name=".specialtoshare.SpecialActivity" />
-        <activity android:name=".mainpage.glasses.goodshare.GoodShareActivity" />
-        <activity
-            android:name=".mainpage.glasses.goodshare.ShareDetailsActivity"
-            android:process=":picture" />
         <activity android:name=".purchase.OrderActivity" />
         <activity
             android:name=".purchase.AllAddressesActivity"
             android:launchMode="singleTop" />
         <activity android:name=".purchase.AddTheAddressesActivity" />
+        <activity
+            android:name=".mainpage.glasses.goodshare.GoodShareActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mainpage.glasses.goodshare.ShareDetailsActivity"
+            android:process=":picture" />
 
 
         <activity
