@@ -51,6 +51,7 @@ public class SpecialAdapter extends RecyclerView.Adapter<SpecialAdapter.MyHolder
 
     @Override
     public void onBindViewHolder(final MyHolder holder, final int position) {
+        holder.setIsRecyclable(false);
         holder.textView.setText(listBeen.get(position).getStory_title());
         netTool.getImage(listBeen.get(position).getStory_img(), new ImageNetListener() {
             @Override

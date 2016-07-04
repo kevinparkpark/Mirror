@@ -51,6 +51,7 @@ public class SunGlassesAdapter extends RecyclerView.Adapter<SunGlassesAdapter.My
 
     @Override
     public void onBindViewHolder(final MyHoder holder, final int position) {
+        holder.setIsRecyclable(false);
         holder.tvName.setText(listBeen.get(position).getGoods_name());
         holder.tvPrice.setText("￥"+listBeen.get(position).getGoods_price());
         holder.tvArea.setText(listBeen.get(position).getProduct_area());

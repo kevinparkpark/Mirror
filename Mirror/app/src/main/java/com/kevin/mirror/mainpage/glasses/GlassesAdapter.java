@@ -24,11 +24,11 @@ import java.util.List;
 /**
  * Created by kevin on 16/6/23.
  */
-public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.MyHoder>{
+public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.MyHoder> {
     private Context context;
     private FragmentToDetailsOnClickListener clickListener;
     private List<SunGlassesBean.DataBean.ListBean> listBeen;
-    private NetTool netTool=new NetTool();
+    private NetTool netTool = new NetTool();
 
     public void setClickListener(FragmentToDetailsOnClickListener clickListener) {
         this.clickListener = clickListener;
@@ -45,54 +45,56 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.MyHoder>
 
     @Override
     public MyHoder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(context).inflate(R.layout.item_allkinds_1,parent,false);
-        MyHoder hoder=new MyHoder(itemView);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_allkinds_1, parent, false);
+        MyHoder hoder = new MyHoder(itemView);
         return hoder;
     }
 
     @Override
     public void onBindViewHolder(final MyHoder holder, final int position) {
 //        if (listBeen.get(position).getType().equals("1")) {
-            holder.tvName.setText(listBeen.get(position).getGoods_name());
-            holder.tvPrice.setText("￥" + listBeen.get(position).getGoods_price());
-            holder.tvArea.setText(listBeen.get(position).getProduct_area());
-            holder.tvBrand.setText(listBeen.get(position).getBrand());
-            netTool.getImage(listBeen.get(position).getGoods_img(), new ImageNetListener() {
-                @Override
-                public void onSuccessed(Bitmap bitmap) {
-                    ReSize reSize=new ReSize();
-                    reSize.bitmapResize(bitmap,holder.ivImg);
+        holder.setIsRecyclable(false);
+        holder.tvName.setText(listBeen.get(position).getGoods_name());
+        holder.tvPrice.setText("￥" + listBeen.get(position).getGoods_price());
+        holder.tvArea.setText(listBeen.get(position).getProduct_area());
+        holder.tvBrand.setText(listBeen.get(position).getBrand());
+        netTool.getImage(listBeen.get(position).getGoods_img(), new ImageNetListener() {
+            @Override
+            public void onSuccessed(Bitmap bitmap) {
+                ReSize reSize = new ReSize();
+                reSize.bitmapResize(bitmap, holder.ivImg);
 //                    holder.ivImg.setImageBitmap(bitmap);
-                    holder.progressBar.setVisibility(View.GONE);
-                    bitmap.recycle();
-                }
+                holder.progressBar.setVisibility(View.GONE);
+                bitmap.recycle();
+            }
 
-                @Override
-                public void onFailed(VolleyError error) {
+            @Override
+            public void onFailed(VolleyError error) {
 
+            }
+        });
+        holder.autoLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (clickListener != null) {
+                    clickListener.onFragmentToDetailsClickListener(position);
                 }
-            });
-            holder.autoLinearLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (clickListener != null) {
-                        clickListener.onFragmentToDetailsClickListener(position);
-                    }
-                }
-            });
+            }
+        });
 //        }
     }
 
     @Override
     public int getItemCount() {
-        return listBeen==null?0:listBeen.size();
+        return listBeen == null ? 0 : listBeen.size();
     }
 
-    class MyHoder extends RecyclerView.ViewHolder{
+    class MyHoder extends RecyclerView.ViewHolder {
         ImageView ivImg;
         TextView tvName, tvPrice, tvArea, tvBrand;
         ProgressBar progressBar;
         AutoLinearLayout autoLinearLayout;
+
         public MyHoder(View itemView) {
             super(itemView);
             ivImg = (ImageView) itemView.findViewById(R.id.iv_allkinds_img);
@@ -101,7 +103,7 @@ public class GlassesAdapter extends RecyclerView.Adapter<GlassesAdapter.MyHoder>
             tvArea = (TextView) itemView.findViewById(R.id.tv_allkinds_product_area);
             tvBrand = (TextView) itemView.findViewById(R.id.tv_allkinds_brand);
             progressBar = (ProgressBar) itemView.findViewById(R.id.progressbar_item_allkinds_1);
-            autoLinearLayout= (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_1);
+            autoLinearLayout = (AutoLinearLayout) itemView.findViewById(R.id.linearlayout_item_allkinds_1);
         }
     }
 }
