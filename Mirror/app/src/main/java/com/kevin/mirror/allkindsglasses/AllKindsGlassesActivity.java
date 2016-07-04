@@ -31,6 +31,7 @@ import com.kevin.mirror.netutils.netinterface.ImageNetListener;
 import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.purchase.OrderActivity;
 import com.kevin.mirror.utils.SharedPreferencesUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
@@ -71,9 +72,9 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ALLKINDS=this;
+        ALLKINDS = this;
 
-       // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
     }
 
     @Override
@@ -108,7 +109,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
 //        position = intent.getIntExtra("position", 0);
         String imgUrl = getIntent().getStringExtra("imgUrl");
 
-        String goodsId=getIntent().getStringExtra("goods_id");
+        String goodsId = getIntent().getStringExtra("goods_id");
 
         netTool.getImage(imgUrl, new ImageNetListener() {
             @Override
@@ -140,7 +141,6 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
 //        buyTv.setOnClickListener(this);
 
 
-
         //给外层ListView加头布局
         View topListHeadView = LayoutInflater.from(this).inflate(R.layout.item_allkindsglasses_top_list_headview, null);
         topListView.addHeaderView(topListHeadView);
@@ -169,36 +169,34 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                 goodsPriceTv.setText(allKindsBean.getData().getGoods_price());
                 brandTitleTv.setText(allKindsBean.getData().getBrand());
 
+                SharedPreferences preferences = getSharedPreferences("information", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("goodsName", allKindsBean.getData().getGoods_name());
+                editor.putString("goodsPrice", allKindsBean.getData().getGoods_price());
+                editor.putString("goodsPic", allKindsBean.getData().getGoods_pic());
+                editor.apply();
+
                 buyTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
-                        String token = getsp.getString("token","0");
-//                        String token= (String) SharedPreferencesUtil.getData(MyApp.context,"token","0");
-                        if (token.equals("0")){
+                        String token = getsp.getString("token", "0");
+                        if (token.equals("0")) {
                             startActivity(new Intent(AllKindsGlassesActivity.this, LoginActivity.class));
-                        }else {
-                            DBUtils dbUtils=new DBUtils();
-                            dbUtils.updateQuery(allKindsBean.getData().getGoods_id(),
-                                    allKindsBean.getData().getGoods_img(),
-                                    allKindsBean.getData().getGoods_name(),
-                                    allKindsBean.getData().getGoods_price(),
-                                    allKindsBean.getData().getProduct_area(),
-                                    allKindsBean.getData().getBrand());
-                            Toast.makeText(AllKindsGlassesActivity.this, "已加入购物车", Toast.LENGTH_SHORT).show();
-                            finish();
+                        } else {
+                            Intent intent = new Intent(MyApp.context, OrderActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });
                 wearTv.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent=new Intent(AllKindsGlassesActivity.this, GoodShareActivity.class);
-                        intent.putExtra("goods_id",allKindsBean.getData().getGoods_id());
+                        Intent intent = new Intent(AllKindsGlassesActivity.this, GoodShareActivity.class);
+                        intent.putExtra("goods_id", allKindsBean.getData().getGoods_id());
                         startActivity(intent);
                     }
                 });
-
             }
 
             @Override
@@ -227,16 +225,17 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
                 //设置外层的listView的滑动距离
                 topListView.setSelectionFromTop(1, -(int) (scroll * 1.2));
                 //增加判断
-                if (firstVisibleItem!=pos){
+                if (firstVisibleItem != pos) {
                     pos = firstVisibleItem;
                     //判断设置下面布局 可见与不可见(这里头布局占一个位置,也就是屏幕上出现的List的item为1的时候出现)
-                }if (firstVisibleItem==1&&flag){
+                }
+                if (firstVisibleItem == 1 && flag) {
                     allKindsGlassesRelayoutLayout.setVisibility(View.VISIBLE);
                     setAnimation();
                     flag = false;
-                }else if (firstVisibleItem==0&&!flag){
+                } else if (firstVisibleItem == 0 && !flag) {
                     setDismissAnimation();
-                    flag=true;
+                    flag = true;
                 }
 
 
@@ -328,7 +327,7 @@ public class AllKindsGlassesActivity extends BaseActivity implements View.OnClic
 
 // 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
 //        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
-      // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
         oks.setTitle("非常完美,你值得拥有");
         // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
         oks.setTitleUrl("http://sharesdk.cn");

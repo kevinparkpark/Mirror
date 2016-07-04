@@ -16,10 +16,12 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.purchase.OrderActivity;
 
 /**
  * Created by kevin on 16/6/23.
@@ -96,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
                 LoginBean bean = gson.fromJson(result, LoginBean.class);
+
                 if (bean.getResult().equals("1")) {
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
 //                    DBUtils dbUtils=new DBUtils();

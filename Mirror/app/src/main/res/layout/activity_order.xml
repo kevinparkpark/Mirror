@@ -82,14 +82,13 @@
         <com.zhy.autolayout.AutoFrameLayout
             android:layout_width="228px"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70px">
+            android:layout_marginTop="30px">
 
             <ImageView
                 android:id="@+id/article_img"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@mipmap/mirror_logo" />
+                android:layout_height="150px"
+                android:layout_gravity="center" />
         </com.zhy.autolayout.AutoFrameLayout>
 
         <TextView
@@ -122,8 +121,6 @@
             android:layout_marginBottom="30px"
             android:layout_marginLeft="228px"
             android:layout_marginTop="30px"
-            android:drawableLeft="@mipmap/yuan"
-            android:paddingLeft="8px"
             android:text="3850"
             android:textColor="#ff5aab"
             android:textSize="24px" />
