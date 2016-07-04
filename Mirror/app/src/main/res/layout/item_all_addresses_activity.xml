@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kevin.mirror.utils.SlidingMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/userInformation"
+            android:layout_width="match_parent"
+            android:layout_height="188px"
+            android:background="@mipmap/fill_in_the_address_box">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="40px"
+                android:text="收件人"
+                android:textColor="#333"
+                android:textSize="26px" />
+
+            <TextView
+                android:id="@+id/item_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_name"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="20px"
+                android:text="地址"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/item_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_address"
+                android:layout_marginLeft="24px"
+                android:layout_marginTop="20px"
+                android:text="13001000260" />
+
+            <ImageView
+                android:id="@+id/document_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="60px"
+                android:background="@mipmap/document_edit" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <TextView
+            android:id="@+id/delete_item"
+            android:layout_width="130px"
+            android:layout_height="188px"
+            android:layout_toRightOf="@id/userInformation"
+            android:background="@color/lightRed"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white"
+            android:textSize="26px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.kevin.mirror.utils.SlidingMenuView>

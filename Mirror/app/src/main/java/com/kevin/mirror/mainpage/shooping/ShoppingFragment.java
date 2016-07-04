@@ -64,7 +64,7 @@ public class ShoppingFragment extends BaseFragment{
         final List<DbBean> dbBeen=dbUtils.queryAll(DbBean.class);
 
 //        dbUtils.deleteAll(DbBean.class);
-        
+
         if (dbBeen.size()>0) {
             ivEmpty.setVisibility(View.GONE);
             adapter.setListBeen(dbBeen);

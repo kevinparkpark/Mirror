@@ -52,6 +52,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.MyHode
 
     @Override
     public void onBindViewHolder(final MyHoder holder, final int position) {
+        holder.setIsRecyclable(false);
         holder.tvName.setText(listBeen.get(position).getGoodsName());
         holder.tvPrice.setText("￥"+listBeen.get(position).getGoodsPrice());
         holder.tvArea.setText(listBeen.get(position).getProductArea());

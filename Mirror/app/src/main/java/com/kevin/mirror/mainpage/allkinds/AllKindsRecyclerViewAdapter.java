@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.bumptech.glide.Glide;
 import com.kevin.mirror.R;
 import com.kevin.mirror.mainpage.maininterface.FragmentToDetailsOnClickListener;
 import com.kevin.mirror.netutils.netinterface.ImageNetListener;
@@ -80,10 +81,14 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
         switch (viewType) {
             case 1:
                 final MyHolder holder1 = (MyHolder) holder;
+                holder1.setIsRecyclable(false);
                 holder1.tvName.setText(allKindsBeen.get(position).getData_info().getGoods_name());
                 holder1.tvPrice.setText("￥" + allKindsBeen.get(position).getData_info().getGoods_price());
                 holder1.tvArea.setText(allKindsBeen.get(position).getData_info().getProduct_area());
                 holder1.tvBrand.setText(allKindsBeen.get(position).getData_info().getBrand());
+
+//                Glide.with(context).load(allKindsBeen.get(position).getData_info()
+//                        .getGoods_img()).into(holder1.ivImg);
 
                 netTool.getImage(allKindsBeen.get(position).getData_info().getGoods_img(), new ImageNetListener() {
                     @Override
@@ -110,9 +115,9 @@ public class AllKindsRecyclerViewAdapter extends RecyclerView.Adapter {
                 break;
             case 2:
                 final SecHolder holder2 = (SecHolder) holder;
+                holder2.setIsRecyclable(false);
                 holder2.textView.setText(allKinds2Been.get(position).getData_info().getStory_title());
                 String url= allKinds2Been.get(position).getData_info().getStory_img();
-                Log.d("AllKindsRecyclerViewAda", url);
                 netTool.getImage(url, new ImageNetListener() {
                     @Override
                     public void onSuccessed(Bitmap bitmap) {

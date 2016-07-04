@@ -52,7 +52,7 @@ import java.util.List;
  */
 public class GoodShareActivity extends AppCompatActivity implements UniversalVideoView.VideoViewCallback {
     private VideoView videoView;
-    private ImageView iv1, iv2, iv3, iv4, iv5, ivImg, ivPlay,ivBack;
+    private ImageView iv1, iv2, iv3, iv4, iv5, ivImg, ivPlay, ivBack;
     private TextView tvBuy;
     private ImageLoader imageLoader = VolleySingleton.getInstance().getImageLoader();
     private String goodId;
@@ -95,6 +95,9 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
         iv4 = (ImageView) findViewById(R.id.iv_goodshare_img4);
         iv5 = (ImageView) findViewById(R.id.iv_goodshare_img5);
         ivImg = (ImageView) findViewById(R.id.iv_goodshare_vv_bac);
+        ivPlay = (ImageView) findViewById(R.id.iv_goodshare_vv_play);
+        ivBack = (ImageView) findViewById(R.id.iv_goodshare_iv_back);
+        tvBuy = (TextView) findViewById(R.id.tv_goodshare_buy);
 
         ivBack= (ImageView) findViewById(R.id.iv_goodshare_iv_back);
         tvBuy= (TextView) findViewById(R.id.tv_goodshare_buy);
@@ -138,8 +141,9 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
             }
         });
 
+
         progressBar = (ProgressBar) findViewById(R.id.progressbar_goodshare);
-        progressBarVv= (ProgressBar) findViewById(R.id.progressbar_goodshare_video);
+        progressBarVv = (ProgressBar) findViewById(R.id.progressbar_goodshare_video);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
@@ -156,6 +160,9 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
                 progressBarVv.setVisibility(View.GONE);
                 ivPlay.setVisibility(View.VISIBLE);
 
+                imgList = new ArrayList<>();
+                videoView.setMediaController(new MediaController(GoodShareActivity.this));
+                videoView.setVideoURI(Uri.parse(videoUrl));
                         imgList=new ArrayList<>();
                 for (AllKindsGlassesDetailsBean.DataBean.WearVideoBean videoBean : wearVideoBeen) {
                     if (videoBean.getType().equals("8")){
@@ -169,80 +176,80 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
                 setVideoAreaSize(videoUrl);
 
                 imageLoader.get(videoImg
-                        ,ImageLoader.getImageListener(ivImg,R.mipmap.img_gray_color,R.mipmap.img_gray_color));
+                        , ImageLoader.getImageListener(ivImg, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
 
-                if (imgList.size()>4){
-                imageLoader.get(imgList.get(imgList.size()-5)
-                        , ImageLoader.getImageListener(iv1, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                imageLoader.get(imgList.get(imgList.size()-4)
-                        , ImageLoader.getImageListener(iv2, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                imageLoader.get(imgList.get(imgList.size()-3)
-                        , ImageLoader.getImageListener(iv3, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                imageLoader.get(imgList.get(imgList.size()-2)
-                        , ImageLoader.getImageListener(iv4, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                imageLoader.get(imgList.get(imgList.size()-1)
-                        , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                }else if (imgList.size()==4){
-                    imageLoader.get(imgList.get(imgList.size()-4)
+                if (imgList.size() > 4) {
+                    imageLoader.get(imgList.get(imgList.size() - 5)
+                            , ImageLoader.getImageListener(iv1, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+                    imageLoader.get(imgList.get(imgList.size() - 4)
                             , ImageLoader.getImageListener(iv2, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-3)
+                    imageLoader.get(imgList.get(imgList.size() - 3)
                             , ImageLoader.getImageListener(iv3, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-2)
+                    imageLoader.get(imgList.get(imgList.size() - 2)
                             , ImageLoader.getImageListener(iv4, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-1)
+                    imageLoader.get(imgList.get(imgList.size() - 1)
                             , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                }else if (imgList.size()==3){
-                    imageLoader.get(imgList.get(imgList.size()-3)
+                } else if (imgList.size() == 4) {
+                    imageLoader.get(imgList.get(imgList.size() - 4)
+                            , ImageLoader.getImageListener(iv2, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+                    imageLoader.get(imgList.get(imgList.size() - 3)
                             , ImageLoader.getImageListener(iv3, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-2)
+                    imageLoader.get(imgList.get(imgList.size() - 2)
                             , ImageLoader.getImageListener(iv4, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-1)
+                    imageLoader.get(imgList.get(imgList.size() - 1)
                             , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                }else if (imgList.size()==2){
-                    imageLoader.get(imgList.get(imgList.size()-2)
+                } else if (imgList.size() == 3) {
+                    imageLoader.get(imgList.get(imgList.size() - 3)
+                            , ImageLoader.getImageListener(iv3, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+                    imageLoader.get(imgList.get(imgList.size() - 2)
                             , ImageLoader.getImageListener(iv4, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
-                    imageLoader.get(imgList.get(imgList.size()-1)
+                    imageLoader.get(imgList.get(imgList.size() - 1)
+                            , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+                } else if (imgList.size() == 2) {
+                    imageLoader.get(imgList.get(imgList.size() - 2)
+                            , ImageLoader.getImageListener(iv4, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
+                    imageLoader.get(imgList.get(imgList.size() - 1)
                             , ImageLoader.getImageListener(iv5, R.mipmap.img_gray_color, R.mipmap.img_gray_color));
                 }
                 iv1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        toDetailsPic(imgList.get(imgList.size()-5),iv1);
+                        toDetailsPic(imgList.get(imgList.size() - 5), iv1);
                     }
                 });
                 iv2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        toDetailsPic(imgList.get(imgList.size()-4),iv2);
+                        toDetailsPic(imgList.get(imgList.size() - 4), iv2);
                     }
                 });
                 iv3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        toDetailsPic(imgList.get(imgList.size()-3),iv3);
+                        toDetailsPic(imgList.get(imgList.size() - 3), iv3);
                     }
                 });
                 iv4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        toDetailsPic(imgList.get(imgList.size()-2),iv4);
+                        toDetailsPic(imgList.get(imgList.size() - 2), iv4);
                     }
                 });
                 iv5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        toDetailsPic(imgList.get(imgList.size()-1),iv5);
+                        toDetailsPic(imgList.get(imgList.size() - 1), iv5);
                     }
                 });
                 tvBuy.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
-                        String token = getsp.getString("token","0");
-                        if (token.equals("0")){
+                        String token = getsp.getString("token", "0");
+                        if (token.equals("0")) {
                             startActivity(new Intent(GoodShareActivity.this, LoginActivity.class));
-                        }else {
-                            DBUtils dbUtils=new DBUtils();
+                        } else {
+                            DBUtils dbUtils = new DBUtils();
                             dbUtils.updateQuery(detailsBeaen.getData().getGoods_id(),
                                     detailsBeaen.getData().getGoods_img(),
                                     detailsBeaen.getData().getGoods_name(),
@@ -263,6 +270,16 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
 
             }
         });
+        //视频播放
+        ivPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                videoView.start();
+                ivPlay.setVisibility(View.GONE);
+                RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.linearlayout_goodeshare);
+                linearLayout.setVisibility(View.GONE);
+            }
+        });
 
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -272,19 +289,19 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
             }
         });
     }
+
     //跳转放大动画
-    private void toDetailsPic(String url,ImageView iv){
-        Intent intent=new Intent(this,ShareDetailsActivity.class);
-        intent.putExtra("url",url);
+    private void toDetailsPic(String url, ImageView iv) {
+        Intent intent = new Intent(this, ShareDetailsActivity.class);
+        intent.putExtra("url", url);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            startActivity(intent,ActivityOptions.makeSceneTransitionAnimation(
-                    this,iv,"sharedView").toBundle());
-        }else {
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
+                    this, iv, "sharedView").toBundle());
+        } else {
             startActivity(intent);
         }
     }
-
 
     //新的视频播放
     /*

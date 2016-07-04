@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -36,10 +37,10 @@ public class NetTool {
 
     //输入URl 解析
     public void getUrl(String url, final NetListener netListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netListener.onSuccessed(response);
-        }else {
+        } else {
             StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -76,10 +77,10 @@ public class NetTool {
     //post请求
     public void postRequest(String url, final String token, final String devicetype, final String category,
                             final NetListener netListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netListener.onSuccessed(response);
-        }else {
+        } else {
 
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
@@ -107,13 +108,62 @@ public class NetTool {
 
     }
 
+    public void addAddress(String url, final String token, final String addrId, final String username, final String cellphone, final String addrInfo,
+                           final NetListener netListener) {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                netListener.onSuccessed(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                netListener.onFailed(error);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> body = new HashMap<>();
+                body.put("token", token);
+                body.put("username", username);
+                body.put("cellphone", cellphone);
+                body.put("addr_info", addrInfo);
+                body.put("addr_id", addrId);
+                return body;
+            }
+        };
+        requestQueue.add(request);
+    }
+
+    public void deleteAddress(String url, final String token, final String addrId, final NetListener netListener) {
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                netListener.onSuccessed(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                netListener.onFailed(error);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> body = new HashMap<>();
+                body.put("token", token);
+                body.put("addr_id", addrId);
+                return body;
+            }
+        };
+        requestQueue.add(request);
+    }
     //接到从fragment传来的信息
 
     public void postGoodList(String url, final String token, final String devicetype, final String goodsId, final NetListener netListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netListener.onSuccessed(response);
-        }else {
+        } else {
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -142,10 +192,10 @@ public class NetTool {
 
     //注册,登录解析
     public void postRegister(String url, final String phoneNum, final String captcha, final String ps, final NetListener netListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netListener.onSuccessed(response);
-        }else {
+        } else {
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -194,10 +244,10 @@ public class NetTool {
     }
 
     public void storyPostRequest(String url, final String deviceType, final String storyId, final NetListener netListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netListener.onSuccessed(response);
-        }else {
+        } else {
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -226,10 +276,10 @@ public class NetTool {
     public <T> void postTRequest(final Class<T> clazz, String url, final String token, final String devicetype, final String category
             , final String goodsId, final String phoneNum, final String ps, final String captcha
             , final String storyId, final NetBeanListener netBeanListener) {
-        if (!isNetworkAvailable(MyApp.context)&&requestQueue.getCache().get(url)!=null){
+        if (!isNetworkAvailable(MyApp.context) && requestQueue.getCache().get(url) != null) {
             String response = new String(requestQueue.getCache().get(url).data);
             netBeanListener.onSuccessed(response);
-        }else {
+        } else {
             StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

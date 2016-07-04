@@ -16,10 +16,12 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 import com.google.gson.Gson;
+import com.kevin.mirror.MyApp;
 import com.kevin.mirror.R;
 import com.kevin.mirror.netutils.netinterface.NetListener;
 import com.kevin.mirror.netutils.NetTool;
 import com.kevin.mirror.netutils.URLValues;
+import com.kevin.mirror.purchase.OrderActivity;
 
 /**
  * Created by kevin on 16/6/23.
@@ -61,7 +63,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 //密码长度大于0设置颜色
                 if (etPs.length() > 0) {
                     tvLogin.setBackgroundResource(R.drawable.selector_login_button);
-                }else {
+                } else {
                     tvLogin.setBackgroundResource(R.mipmap.login_no_button);
                 }
             }
@@ -72,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_login:
-                String log="http://api101.test.mirroreye.cn/index.php/user/login";
+                String log = "http://api101.test.mirroreye.cn/index.php/user/login";
                 if (etUser.length() == 11) {
                     postLogin(URLValues.LOGIN_URL, etUser.getText().toString(), etPs.getText().toString());
                 } else {
@@ -87,6 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
     //登录post请求
     private void postLogin(String url, String phoneNum, String ps) {
         NetTool netTool = new NetTool();
@@ -95,6 +98,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onSuccessed(String result) {
                 Gson gson = new Gson();
                 LoginBean bean = gson.fromJson(result, LoginBean.class);
+
                 if (bean.getResult().equals("1")) {
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
 //                    DBUtils dbUtils=new DBUtils();
@@ -103,11 +107,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     SharedPreferences sp = getSharedPreferences("token", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("token", bean.getData().getToken());
+                    Log.d("LoginActivity", bean.getData().getToken());
                     editor.commit();
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, bean.getMsg(), Toast.LENGTH_SHORT).show();
-                    Log.d("LoginActivity","result0--------"+ bean.getMsg());
+                    Log.d("LoginActivity", "result0--------" + bean.getMsg());
                 }
             }
 
