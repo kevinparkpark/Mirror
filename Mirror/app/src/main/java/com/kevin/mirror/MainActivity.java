@@ -40,14 +40,15 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
     private MenuFragment menuFragment;
     private ImageView ivLogo;
     private TextView tvLogin;
-    private DBUtils dbUtils=new DBUtils();
+    private DBUtils dbUtils = new DBUtils();
     private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ivLogo = (ImageView) findViewById(R.id.iv_main_logo);
-        tvLogin= (TextView) findViewById(R.id.tv_main_login);
+        tvLogin = (TextView) findViewById(R.id.tv_main_login);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         });
         //获取token设置textview
         SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
-        token = getsp.getString("token","0");
-        if (!token.equals("0")){
+        token = getsp.getString("token", "0");
+        if (!token.equals("0")) {
             tvLogin.setText("购物车");
         }
         //login点击事件
@@ -79,25 +80,27 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
             @Override
             public void onClick(View v) {
                 SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
-                token = getsp.getString("token","0");
-                if (token.equals("0")){
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                }else {
+                token = getsp.getString("token", "0");
+                if (token.equals("0")) {
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                } else {
                     viewPager.setCurrentItem(4);
                 }
             }
         });
     }
+
     //回调onstart方法
     @Override
     protected void onStart() {
         super.onStart();
         SharedPreferences getsp = getSharedPreferences("token", MODE_PRIVATE);
-        token = getsp.getString("token","0");
-        if (!token.equals("0")){
+        token = getsp.getString("token", "0");
+        if (!token.equals("0")) {
             tvLogin.setText("购物车");
         }
     }
+
     //跳转到menufragment
     @Override
     public void onMenuClickListener(int position) {
@@ -108,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         bundle.putInt("position", position);
         menuFragment.setArguments(bundle);
     }
+
     //跳转回activity
     @Override
     public void onMenu2MainClickListener(int position) {
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         viewPager.setCurrentItem(position);
         tvLogin.setText("登录");
     }
+
     //logo动画
     private void setAminations() {
         AnimationSet localAnimationSet = new AnimationSet(true);
@@ -124,11 +129,12 @@ public class MainActivity extends AppCompatActivity implements MenuOnClickListen
         localAnimationSet.addAnimation(localScaleAnimation);
         ivLogo.startAnimation(localAnimationSet);
     }
+
     //点击2此退出
     private long exitTime = 0;
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(menuFragment!=null&&menuFragment.isVisible()){
+        if (menuFragment != null && menuFragment.isVisible()) {
             getSupportFragmentManager().beginTransaction().hide(menuFragment).commit();
             return false;
         }

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by kevin on 16/6/27.
  */
-public class AllKindsGlassesDetailsBeaen {
+public class AllKindsGlassesDetailsBean {
 
     /**
      * result : 1
