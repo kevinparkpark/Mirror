@@ -138,13 +138,6 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
             }
         });
 
-
-
-
-
-
-
-
         progressBar = (ProgressBar) findViewById(R.id.progressbar_goodshare);
         progressBarVv= (ProgressBar) findViewById(R.id.progressbar_goodshare_video);
 
