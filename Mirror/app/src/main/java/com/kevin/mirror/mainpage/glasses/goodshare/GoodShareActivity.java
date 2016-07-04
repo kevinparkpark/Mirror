@@ -161,8 +161,8 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
                 ivPlay.setVisibility(View.VISIBLE);
 
                 imgList = new ArrayList<>();
-                videoView.setMediaController(new MediaController(GoodShareActivity.this));
-                videoView.setVideoURI(Uri.parse(videoUrl));
+//                videoView.setMediaController(new MediaController(GoodShareActivity.this));
+//                videoView.setVideoURI(Uri.parse(videoUrl));
                         imgList=new ArrayList<>();
                 for (AllKindsGlassesDetailsBean.DataBean.WearVideoBean videoBean : wearVideoBeen) {
                     if (videoBean.getType().equals("8")){
@@ -271,15 +271,15 @@ public class GoodShareActivity extends AppCompatActivity implements UniversalVid
             }
         });
         //视频播放
-        ivPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                videoView.start();
-                ivPlay.setVisibility(View.GONE);
-                RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.linearlayout_goodeshare);
-                linearLayout.setVisibility(View.GONE);
-            }
-        });
+//        ivPlay.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                videoView.start();
+//                ivPlay.setVisibility(View.GONE);
+//                RelativeLayout linearLayout = (RelativeLayout) findViewById(R.id.linearlayout_goodeshare);
+//                linearLayout.setVisibility(View.GONE);
+//            }
+//        });
 
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
